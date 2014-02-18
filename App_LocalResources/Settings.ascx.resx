@@ -192,4 +192,10 @@
   <data name="Username_Lastname" xml:space="preserve">
     <value>Create from Lastname</value>
   </data>
+  <data name="lblInterface.Help" xml:space="preserve">
+    <value>Enter the external interface qualifier. See &lt;a href="https://github.com/DNN-Connect/UserAccountRegistration/wiki/External-Interfaces" target="_blank"&gt;this article&lt;/a&gt; on how to do that and how it can help you.</value>
+  </data>
+  <data name="lblInterface.Text" xml:space="preserve">
+    <value>External Interface</value>
+  </data>
 </root>

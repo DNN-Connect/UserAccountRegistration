@@ -8,6 +8,7 @@ Imports DotNetNuke.Entities.Profile
 Imports DotNetNuke.UI.Skins.Controls
 Imports DotNetNuke.Services.Localization
 Imports DotNetNuke.Common.Globals
+Imports DotNetNuke.Framework.JavaScriptLibraries
 
 Namespace Connect.Modules.UserManagement.AccountRegistration
 
@@ -17,7 +18,7 @@ Namespace Connect.Modules.UserManagement.AccountRegistration
 
         Private Sub Page_Init(sender As Object, e As System.EventArgs) Handles Me.Init
 
-            DotNetNuke.Framework.jQuery.RequestDnnPluginsRegistration()
+            JavaScript.RequestRegistration(CommonJs.DnnPlugins)
 
         End Sub
 

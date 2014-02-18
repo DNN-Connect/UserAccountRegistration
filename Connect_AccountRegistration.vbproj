@@ -139,6 +139,11 @@
     <None Include="BuildScripts\MSBuild.Community.Tasks.Targets" />
     <None Include="Connect_AccountRegistration.dnn" />
     <Content Include="Templates.ascx" />
+    <Content Include="Templates\DNN-Connect\Email.Admin.txt" />
+    <Content Include="Templates\DNN-Connect\Email.User.Private.txt" />
+    <Content Include="Templates\DNN-Connect\Email.User.txt" />
+    <Content Include="Templates\DNN-Connect\Email.User.Verified.txt" />
+    <Content Include="Templates\DNN-Connect\Form.txt" />
     <Content Include="Templates\Default\Email.Admin.txt" />
     <Content Include="Templates\Default\Email.User.Private.txt" />
     <Content Include="Templates\Default\Email.User.txt" />

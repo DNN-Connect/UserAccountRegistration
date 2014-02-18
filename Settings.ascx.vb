@@ -17,6 +17,7 @@ Namespace Connect.Modules.UserManagement.AccountRegistration
                     BindPages()
                     BindRoles()
 
+                    If (Settings.Contains("ExternalInterface")) Then txtInterface.Text = Settings("ExternalInterface").ToString()
                     If (Settings.Contains("ShowUserName")) Then drpUsernameMode.SelectedValue = Settings("ShowUserName").ToString()
                     If (Settings.Contains("ShowDisplayName")) Then drpDisplaynameMode.SelectedValue = Settings("ShowDisplayName").ToString()
                     If (Settings.Contains("RedirectAfterSubmit")) Then drpRedirectAfterSubmit.SelectedValue = Settings("RedirectAfterSubmit").ToString()
@@ -35,7 +36,7 @@ Namespace Connect.Modules.UserManagement.AccountRegistration
             Try
                 Dim objModules As New Entities.Modules.ModuleController
 
-
+                objModules.UpdateTabModuleSetting(TabModuleId, "ExternalInterface", txtInterface.Text)
                 objModules.UpdateTabModuleSetting(TabModuleId, "ShowUserName", drpUsernameMode.SelectedValue)
                 objModules.UpdateTabModuleSetting(TabModuleId, "ShowDisplayName", drpDisplaynameMode.SelectedValue)
                 objModules.UpdateTabModuleSetting(TabModuleId, "RedirectAfterSubmit", drpRedirectAfterSubmit.SelectedValue)

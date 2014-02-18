@@ -139,5 +139,23 @@ Namespace Connect.Modules.UserManagement.AccountRegistration
         '''To modify move field declaration from designer file to code-behind file.
         '''</remarks>
         Protected WithEvents chkNotifyUser As Global.System.Web.UI.WebControls.CheckBox
+
+        '''<summary>
+        '''lblInterface control.
+        '''</summary>
+        '''<remarks>
+        '''Auto-generated field.
+        '''To modify move field declaration from designer file to code-behind file.
+        '''</remarks>
+        Protected WithEvents lblInterface As Global.DotNetNuke.UI.UserControls.LabelControl
+
+        '''<summary>
+        '''txtInterface control.
+        '''</summary>
+        '''<remarks>
+        '''Auto-generated field.
+        '''To modify move field declaration from designer file to code-behind file.
+        '''</remarks>
+        Protected WithEvents txtInterface As Global.System.Web.UI.WebControls.TextBox
     End Class
 End Namespace

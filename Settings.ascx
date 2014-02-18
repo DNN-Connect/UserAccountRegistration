@@ -49,3 +49,8 @@
      <dnn:Label ID="lblNotifyUser" runat="server" Text="Send confirmation e-mail to user:"></dnn:Label>
      <asp:CheckBox ID="chkNotifyUser" runat="server" />
 </div>
+
+<div class="dnnFormItem">
+     <dnn:Label ID="lblInterface" runat="server" Text="External Interface:"></dnn:Label>
+     <asp:TextBox ID="txtInterface" runat="server"></asp:TextBox>
+</div>
