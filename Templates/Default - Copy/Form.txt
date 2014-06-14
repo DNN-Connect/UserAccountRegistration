@@ -8,12 +8,6 @@
 	<div id="dvFormTemplate" class="connect_register">
 		
 		<div class="dnnFormItem dnnClear">
-		  [DNNLBL:USER:Username:HideRequired]
-		  [CTL:USER:Username]
-		  [REQUIRED:USER:Username]
-		</div>
-		
-		<div class="dnnFormItem dnnClear">
 		  [DNNLBL:USER:Email:HideRequired]
 		  [CTL:USER:Email]
 		  [REQUIRED:USER:Email]
@@ -41,18 +35,6 @@
 		  [DNNLBL:USER:Password2:HideRequired]
 		  [CTL:USER:Password2]
 		  [REQUIRED:USER:Password2]
-		</div>
-
-		<div class="dnnFormItem dnnClear">
-		  [DNNLBL:USER:PasswordQuestion:HideRequired]
-		  [CTL:USER:PasswordQuestion]
-		  [REQUIRED:USER:PasswordQuestion]
-		</div>
-
-		<div class="dnnFormItem dnnClear">
-		  [DNNLBL:USER:PasswordAnswer:HideRequired]
-		  [CTL:USER:PasswordAnswer]
-		  [REQUIRED:USER:PasswordAnswer]
 		</div>
 
 		<div>Would you like to join the DNN-Connect Association?</div>

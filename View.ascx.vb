@@ -211,6 +211,14 @@ Namespace Connect.Modules.UserManagement.AccountRegistration
             Dim txtLastName As TextBox = CType(FindControlRecursive(plhRegister, plhRegister.ID & "_" & Constants.ControlId_Lastname), TextBox)
             blnUpdateLastname = (Not txtLastName Is Nothing)
 
+
+            If (blnUpdateFirstname And blnUpdateLastname) Then
+                If txtLastName.Text.ToLower.Trim = txtFirstName.Text.ToLower.Trim Then
+                    strMessages.Add("Error_LastnameLikeFirstname")
+                    AddErrorIndicator(Constants.User_Firstname, plhRegister)
+                End If
+            End If
+
             If blnUpdateLastname Then
                 If Not IsValidUserAttribute(Constants.User_Lastname, plhRegister) Then
                     strMessages.Add("Error_MissingLastname")
@@ -636,6 +644,33 @@ Namespace Connect.Modules.UserManagement.AccountRegistration
                 End Try
             End If
 
+            Dim blnAddMembership As Boolean = False
+
+            Dim chkTest As CheckBox = CType(FindMembershipControlsRecursive(plhRegister, plhRegister.ID & "_" & Constants.ControlId_RoleMembership), CheckBox)
+            If Not chkTest Is Nothing Then
+                'at least on role membership checkbox found. Now lookup roles that could match
+                Dim rc As New RoleController
+                Dim roles As ArrayList
+                roles = rc.GetPortalRoles(PortalId)
+                For Each objRole As RoleInfo In roles
+
+                    Dim blnPending As Boolean = False
+                    Dim chkRole As CheckBox = CType(FindControlRecursive(plhRegister, plhRegister.ID & "_" & Constants.ControlId_RoleMembership & objRole.RoleName.Replace(" ", "")), CheckBox)
+                    If chkRole Is Nothing Then
+                        chkRole = CType(FindControlRecursive(plhRegister, plhRegister.ID & "_" & Constants.ControlId_RoleMembership & objRole.RoleName.Replace(" ", "") & "_Pending"), CheckBox)
+                        blnPending = True
+                    End If
+
+                    If Not chkRole Is Nothing Then
+                        If blnPending Then
+                            rc.AddUserRole(PortalId, oUser.UserID, objRole.RoleID, RoleStatus.Pending, False, Date.Now, Null.NullDate)
+                        Else
+                            rc.AddUserRole(PortalId, oUser.UserID, objRole.RoleID, RoleStatus.Approved, False, Date.Now, Null.NullDate)
+                        End If
+                    End If
+
+                Next
+            End If
 
             If PortalSettings.UserRegistration = PortalRegistrationType.PublicRegistration Then
 
