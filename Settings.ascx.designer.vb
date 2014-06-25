@@ -105,6 +105,24 @@ Namespace Connect.Modules.UserManagement.AccountRegistration
         Protected WithEvents drpAddToRole As Global.System.Web.UI.WebControls.DropDownList
 
         '''<summary>
+        '''lblAddToRoleStatus control.
+        '''</summary>
+        '''<remarks>
+        '''Auto-generated field.
+        '''To modify move field declaration from designer file to code-behind file.
+        '''</remarks>
+        Protected WithEvents lblAddToRoleStatus As Global.DotNetNuke.UI.UserControls.LabelControl
+
+        '''<summary>
+        '''drpRoleStatus control.
+        '''</summary>
+        '''<remarks>
+        '''Auto-generated field.
+        '''To modify move field declaration from designer file to code-behind file.
+        '''</remarks>
+        Protected WithEvents drpRoleStatus As Global.System.Web.UI.WebControls.DropDownList
+
+        '''<summary>
         '''lblNotifyRole control.
         '''</summary>
         '''<remarks>

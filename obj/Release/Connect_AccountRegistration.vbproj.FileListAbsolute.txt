@@ -5,3 +5,10 @@ D:\Development\Websites\dev_DNN7\website\DesktopModules\Connect\AccountRegistrat
 D:\Development\Websites\dev_DNN7\website\DesktopModules\Connect\AccountRegistration\obj\Release\Connect.Modules.AccountRegistration.dll
 D:\Development\Websites\dev_DNN7\website\DesktopModules\Connect\AccountRegistration\obj\Release\Connect.Modules.AccountRegistration.xml
 D:\Development\Websites\dev_DNN7\website\DesktopModules\Connect\AccountRegistration\obj\Release\Connect.Modules.AccountRegistration.pdb
+D:\Development\Websites\dev_DNNConnect\wwwRoot\bin\Connect.Modules.AccountRegistration.dll
+D:\Development\Websites\dev_DNNConnect\wwwRoot\bin\Connect.Modules.AccountRegistration.pdb
+D:\Development\Websites\dev_DNNConnect\wwwRoot\bin\Connect.Modules.AccountRegistration.xml
+D:\Development\Websites\dev_DNNConnect\wwwRoot\DesktopModules\Connect\AccountRegistration\obj\Release\Connect_AccountRegistration.vbprojResolveAssemblyReference.cache
+D:\Development\Websites\dev_DNNConnect\wwwRoot\DesktopModules\Connect\AccountRegistration\obj\Release\Connect.Modules.AccountRegistration.dll
+D:\Development\Websites\dev_DNNConnect\wwwRoot\DesktopModules\Connect\AccountRegistration\obj\Release\Connect.Modules.AccountRegistration.xml
+D:\Development\Websites\dev_DNNConnect\wwwRoot\DesktopModules\Connect\AccountRegistration\obj\Release\Connect.Modules.AccountRegistration.pdb

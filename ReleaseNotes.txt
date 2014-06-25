@@ -9,6 +9,22 @@
 	<h3>Release Notes</h3>
 
 	<p class="Owner">
+		<b>Version 01.02.00</b><br /><br />
+	</p>
+	<p>Extended Token Support</p>	
+	<h4>Changes</h4>
+	<ul>
+			<li>New conditional token: [IFSOCIALMEMBERSHIPPENDING:XXX]...[/IFSOCIALMEMBERSHIPPENDING:XXX] renders everything in between the tokens if the current user is in the specified XXX social group and the group membership is pending.</li>
+			<li>New conditional token: [IFSOCIALMEMBERSHIPAPPROVED:XXX]...[/IFSOCIALMEMBERSHIPAPPROVED:XXX] renders everything in between the tokens if the current user is in the specified XXX social group and the group membership is pending.</li>
+			<li>New conditional token: [IFSOCIALMEMBERSHIPNONE:XXX]...[/IFSOCIALMEMBERSHIPNONE:XXX] renders everything in between the tokens if the current user is not yet in the specified XXX social group and also has not applied yet for becoming a member.</li>
+			<li>New conditional token: [IFISINROLE:XXX]...[/IFISINROLE:XXX] renders everything in between the tokens if the current user is in the specified XXX role.</li>
+			<li>New conditional token: [IFNOTISINROLE:XXX]...[/IFNOTISINROLE:XXX] renders everything in between the tokens if the current user is not in the specified XXX role.</li>
+			<li>New control token: [CTL:ROLEMEMBERSHP:XXX] renders a checkbox that - once checked - will add the user account to the specified XXX role.</li>
+			<li>New control token: [CTL:ROLEMEMBERSHP:XXX:Pending] will do the same but will rather make the role membership pending.</li>
+			<li>New Setting: When adding users to a role through the modulesettings you can now set the status of that role membership</li>
+	</ul>
+
+	<p class="Owner">
 		<b>Version 01.00.01</b><br /><br />
 	</p>
 	<p>Service release. Mainly focused on better support for password management in newer dnn installations where password retrieval is disabled.</p>	

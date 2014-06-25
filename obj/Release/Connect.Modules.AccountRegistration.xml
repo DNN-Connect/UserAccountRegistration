@@ -46,6 +46,150 @@ plhRegister control.
 Auto-generated field.
 To modify move field declaration from designer file to code-behind file.
 </remarks>
+</member><member name="F:Connect.Modules.UserManagement.AccountRegistration.Settings.lblUsernameMode">
+	<summary>
+lblUsernameMode control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Connect.Modules.UserManagement.AccountRegistration.Settings.drpUsernameMode">
+	<summary>
+drpUsernameMode control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Connect.Modules.UserManagement.AccountRegistration.Settings.lblDisplaynameMode">
+	<summary>
+lblDisplaynameMode control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Connect.Modules.UserManagement.AccountRegistration.Settings.drpDisplaynameMode">
+	<summary>
+drpDisplaynameMode control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Connect.Modules.UserManagement.AccountRegistration.Settings.lblRedirectAfterSubmit">
+	<summary>
+lblRedirectAfterSubmit control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Connect.Modules.UserManagement.AccountRegistration.Settings.drpRedirectAfterSubmit">
+	<summary>
+drpRedirectAfterSubmit control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Connect.Modules.UserManagement.AccountRegistration.Settings.lblUsermanagementTab">
+	<summary>
+lblUsermanagementTab control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Connect.Modules.UserManagement.AccountRegistration.Settings.drpUserManagementTab">
+	<summary>
+drpUserManagementTab control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Connect.Modules.UserManagement.AccountRegistration.Settings.lblAddToRole">
+	<summary>
+lblAddToRole control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Connect.Modules.UserManagement.AccountRegistration.Settings.drpAddToRole">
+	<summary>
+drpAddToRole control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Connect.Modules.UserManagement.AccountRegistration.Settings.lblAddToRoleStatus">
+	<summary>
+lblAddToRoleStatus control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Connect.Modules.UserManagement.AccountRegistration.Settings.drpRoleStatus">
+	<summary>
+drpRoleStatus control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Connect.Modules.UserManagement.AccountRegistration.Settings.lblNotifyRole">
+	<summary>
+lblNotifyRole control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Connect.Modules.UserManagement.AccountRegistration.Settings.drpNotifyRole">
+	<summary>
+drpNotifyRole control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Connect.Modules.UserManagement.AccountRegistration.Settings.lblNotifyUser">
+	<summary>
+lblNotifyUser control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Connect.Modules.UserManagement.AccountRegistration.Settings.chkNotifyUser">
+	<summary>
+chkNotifyUser control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Connect.Modules.UserManagement.AccountRegistration.Settings.lblInterface">
+	<summary>
+lblInterface control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member><member name="F:Connect.Modules.UserManagement.AccountRegistration.Settings.txtInterface">
+	<summary>
+txtInterface control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
 </member><member name="F:Connect.Modules.UserManagement.AccountRegistration.Templates.plTheme">
 	<summary>
 plTheme control.
@@ -241,118 +385,6 @@ To modify move field declaration from designer file to code-behind file.
 </member><member name="F:Connect.Modules.UserManagement.AccountRegistration.Templates.cmdCancel">
 	<summary>
 cmdCancel control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Connect.Modules.UserManagement.AccountRegistration.Settings.lblUsernameMode">
-	<summary>
-lblUsernameMode control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Connect.Modules.UserManagement.AccountRegistration.Settings.drpUsernameMode">
-	<summary>
-drpUsernameMode control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Connect.Modules.UserManagement.AccountRegistration.Settings.lblDisplaynameMode">
-	<summary>
-lblDisplaynameMode control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Connect.Modules.UserManagement.AccountRegistration.Settings.drpDisplaynameMode">
-	<summary>
-drpDisplaynameMode control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Connect.Modules.UserManagement.AccountRegistration.Settings.lblRedirectAfterSubmit">
-	<summary>
-lblRedirectAfterSubmit control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Connect.Modules.UserManagement.AccountRegistration.Settings.drpRedirectAfterSubmit">
-	<summary>
-drpRedirectAfterSubmit control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Connect.Modules.UserManagement.AccountRegistration.Settings.lblUsermanagementTab">
-	<summary>
-lblUsermanagementTab control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Connect.Modules.UserManagement.AccountRegistration.Settings.drpUserManagementTab">
-	<summary>
-drpUserManagementTab control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Connect.Modules.UserManagement.AccountRegistration.Settings.lblAddToRole">
-	<summary>
-lblAddToRole control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Connect.Modules.UserManagement.AccountRegistration.Settings.drpAddToRole">
-	<summary>
-drpAddToRole control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Connect.Modules.UserManagement.AccountRegistration.Settings.lblNotifyRole">
-	<summary>
-lblNotifyRole control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Connect.Modules.UserManagement.AccountRegistration.Settings.drpNotifyRole">
-	<summary>
-drpNotifyRole control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Connect.Modules.UserManagement.AccountRegistration.Settings.lblNotifyUser">
-	<summary>
-lblNotifyUser control.
-</summary>
-	<remarks>
-Auto-generated field.
-To modify move field declaration from designer file to code-behind file.
-</remarks>
-</member><member name="F:Connect.Modules.UserManagement.AccountRegistration.Settings.chkNotifyUser">
-	<summary>
-chkNotifyUser control.
 </summary>
 	<remarks>
 Auto-generated field.

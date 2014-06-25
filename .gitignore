@@ -149,3 +149,9 @@ $RECYCLE.BIN/
 
 # Mac crap
 .DS_Store
+*.zip
+*.dll
+*.pdb
+obj/Release/Connect.Modules.AccountRegistration.xml
+obj/Release/Connect_AccountRegistration.vbproj.FileListAbsolute.txt
+*.cache

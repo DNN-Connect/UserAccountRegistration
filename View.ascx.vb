@@ -570,8 +570,7 @@ Namespace Connect.Modules.UserManagement.AccountRegistration
                     strAdminBody = strAdminBody.Replace("[REGISTRATIONMODE]", Localization.GetString("RegistrationMode_Public.Text", LocalResourceFile))
                 End If
 
-                strAdminBody = strAdminBody.Replace("[USERURL]", NavigateURL(UsermanagementTab, "", "uid=" & oUser.UserID.ToString))
-
+                strAdminBody = strAdminBody.Replace("[USERURL]", NavigateURL(UsermanagementTab, "", "uid=" & oUser.UserID.ToString, "RoleId=" & PortalSettings.RegisteredRoleId.ToString))
 
 
                 Dim ctrlRoles As New RoleController
@@ -639,7 +638,11 @@ Namespace Connect.Modules.UserManagement.AccountRegistration
             If AddToRoleOnSubmit <> Null.NullInteger Then
                 Try
                     Dim rc As New RoleController
-                    rc.AddUserRole(PortalId, oUser.UserID, AddToRoleOnSubmit, Null.NullDate)
+                    If AddToRoleStatus.ToLower = "pending" Then
+                        rc.AddUserRole(PortalId, oUser.UserID, AddToRoleOnSubmit, RoleStatus.Pending, False, Date.Now, Null.NullDate)
+                    Else
+                        rc.AddUserRole(PortalId, oUser.UserID, AddToRoleOnSubmit, RoleStatus.Approved, False, Date.Now, Null.NullDate)
+                    End If
                 Catch
                 End Try
             End If

@@ -198,4 +198,16 @@
   <data name="lblInterface.Text" xml:space="preserve">
     <value>External Interface</value>
   </data>
+  <data name="lblAddToRoleStatus.Help" xml:space="preserve">
+    <value>Select the status of the role membership after submitting the form</value>
+  </data>
+  <data name="lblAddToRoleStatus.Text" xml:space="preserve">
+    <value>Role status after submit:</value>
+  </data>
+  <data name="StatusApproved.Text" xml:space="preserve">
+    <value>Approved</value>
+  </data>
+  <data name="StatusPending.Text" xml:space="preserve">
+    <value>Pending</value>
+  </data>
 </root>
