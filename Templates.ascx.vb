@@ -49,7 +49,7 @@ Namespace Connect.Modules.UserManagement.AccountRegistration
             BindSelectedTheme()
         End Sub
 
-        Private Sub cmdUpdateSettings_Click(sender As Object, e As System.EventArgs) Handles cmdUpdateSettings.Click
+        Private Sub cmdUpdate_Click(sender As Object, e As System.EventArgs) Handles cmdUpdate.Click
 
             Dim blnSucess As Boolean = False
 
@@ -61,14 +61,26 @@ Namespace Connect.Modules.UserManagement.AccountRegistration
 
         End Sub
 
-        Private Sub cmdDeleteSelected_Click(sender As Object, e As System.EventArgs) Handles cmdDeleteSelected.Click
+        Private Sub cmdUpdateExit_Click(sender As Object, e As System.EventArgs) Handles cmdUpdateExit.Click
 
+            Dim blnSucess As Boolean = False
+
+            SaveTemplates(blnSucess)
+
+            If blnSucess Then
+                UpdateSettings()
+            End If
+
+            Response.Redirect(NavigateURL())
+
+        End Sub
+
+        Private Sub cmdDeleteSelected_Click(sender As Object, e As System.EventArgs) Handles cmdDeleteSelected.Click
             Try
                 DeleteTheme()
             Catch ex As Exception
                 DotNetNuke.UI.Skins.Skin.AddModuleMessage(Me, Localization.GetString("lblDeleteThemeError", LocalResourceFile), ModuleMessage.ModuleMessageType.RedError)
             End Try
-
         End Sub
 
         Private Sub cmdCancel_Click(sender As Object, e As System.EventArgs) Handles cmdCancel.Click
@@ -100,7 +112,8 @@ Namespace Connect.Modules.UserManagement.AccountRegistration
         Private Sub LocalizeForm()
 
             cmdCancel.Text = Localization.GetString("cmdCancel", LocalResourceFile)
-            cmdUpdateSettings.Text = Localization.GetString("cmdUpdateSettings", LocalResourceFile)
+            cmdUpdateExit.Text = Localization.GetString("cmdUpdateExit", LocalResourceFile)
+            cmdUpdate.Text = Localization.GetString("cmdUpdate", LocalResourceFile)
             cmdCopySelected.Text = Localization.GetString("cmdCopySelected", LocalResourceFile)
             cmdDeleteSelected.Text = Localization.GetString("cmdDeleteSelected", LocalResourceFile)
 

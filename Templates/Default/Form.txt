@@ -62,6 +62,9 @@
 		  [CTL:ROLEMEMBERSHIP:Association Member:Pending]
 		</div>
 
+		<div>
+			[RECAPTCHA:6LeT2vUSAAAAAK9YCM_6tQw3dbNUYnDVnEi4XEnQ]
+		</div>
 		<ul class="dnnActions">
 		  <li>[CTL:UPDATEBUTTON:CreateAccount]</li>
 		</ul>

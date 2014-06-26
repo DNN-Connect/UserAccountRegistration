@@ -132,7 +132,7 @@
   <data name="cmdDeleteSelected.Text" xml:space="preserve">
     <value>Delete Selected</value>
   </data>
-  <data name="cmdUpdateSettings.Text" xml:space="preserve">
+  <data name="cmdUpdateExit.Text" xml:space="preserve">
     <value>Save Templates and Exit</value>
   </data>
   <data name="lblConfirmDelete.Text" xml:space="preserve">
@@ -203,5 +203,8 @@
   </data>
   <data name="plLocale.Text" xml:space="preserve">
     <value>Template Locale:</value>
+  </data>
+  <data name="cmdUpdate.Text" xml:space="preserve">
+    <value>Save Templates</value>
   </data>
 </root>

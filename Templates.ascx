@@ -59,7 +59,8 @@
     </div>
 
     <ul class="dnnActions">
-        <li><asp:LinkButton ID="cmdUpdateSettings" runat="server" CssClass="dnnPrimaryAction"></asp:LinkButton></li>
+        <li><asp:LinkButton ID="cmdUpdate" runat="server" CssClass="dnnPrimaryAction"></asp:LinkButton></li>
+        <li><asp:LinkButton ID="cmdUpdateExit" runat="server" CssClass="dnnPrimaryAction"></asp:LinkButton></li>
         <li><asp:LinkButton ID="cmdCancel" runat="server" CssClass="dnnSecondaryAction"></asp:LinkButton></li>
     </ul>
 

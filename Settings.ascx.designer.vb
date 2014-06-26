@@ -175,5 +175,77 @@ Namespace Connect.Modules.UserManagement.AccountRegistration
         '''To modify move field declaration from designer file to code-behind file.
         '''</remarks>
         Protected WithEvents txtInterface As Global.System.Web.UI.WebControls.TextBox
+
+        '''<summary>
+        '''lblPrivateCaptchaKey control.
+        '''</summary>
+        '''<remarks>
+        '''Auto-generated field.
+        '''To modify move field declaration from designer file to code-behind file.
+        '''</remarks>
+        Protected WithEvents lblPrivateCaptchaKey As Global.DotNetNuke.UI.UserControls.LabelControl
+
+        '''<summary>
+        '''txtPrivateCaptchaKey control.
+        '''</summary>
+        '''<remarks>
+        '''Auto-generated field.
+        '''To modify move field declaration from designer file to code-behind file.
+        '''</remarks>
+        Protected WithEvents txtPrivateCaptchaKey As Global.System.Web.UI.WebControls.TextBox
+
+        '''<summary>
+        '''lblCompareFirstNameLastName control.
+        '''</summary>
+        '''<remarks>
+        '''Auto-generated field.
+        '''To modify move field declaration from designer file to code-behind file.
+        '''</remarks>
+        Protected WithEvents lblCompareFirstNameLastName As Global.DotNetNuke.UI.UserControls.LabelControl
+
+        '''<summary>
+        '''chkCompareFirstNameLastName control.
+        '''</summary>
+        '''<remarks>
+        '''Auto-generated field.
+        '''To modify move field declaration from designer file to code-behind file.
+        '''</remarks>
+        Protected WithEvents chkCompareFirstNameLastName As Global.System.Web.UI.WebControls.CheckBox
+
+        '''<summary>
+        '''lblValidateEmailThroughRegex control.
+        '''</summary>
+        '''<remarks>
+        '''Auto-generated field.
+        '''To modify move field declaration from designer file to code-behind file.
+        '''</remarks>
+        Protected WithEvents lblValidateEmailThroughRegex As Global.DotNetNuke.UI.UserControls.LabelControl
+
+        '''<summary>
+        '''chkValidateEmailThroughRegex control.
+        '''</summary>
+        '''<remarks>
+        '''Auto-generated field.
+        '''To modify move field declaration from designer file to code-behind file.
+        '''</remarks>
+        Protected WithEvents chkValidateEmailThroughRegex As Global.System.Web.UI.WebControls.CheckBox
+
+        '''<summary>
+        '''lblEmailRegex control.
+        '''</summary>
+        '''<remarks>
+        '''Auto-generated field.
+        '''To modify move field declaration from designer file to code-behind file.
+        '''</remarks>
+        Protected WithEvents lblEmailRegex As Global.DotNetNuke.UI.UserControls.LabelControl
+
+        '''<summary>
+        '''txtEmailRegex control.
+        '''</summary>
+        '''<remarks>
+        '''Auto-generated field.
+        '''To modify move field declaration from designer file to code-behind file.
+        '''</remarks>
+        Protected WithEvents txtEmailRegex As Global.System.Web.UI.WebControls.TextBox
     End Class
 End Namespace

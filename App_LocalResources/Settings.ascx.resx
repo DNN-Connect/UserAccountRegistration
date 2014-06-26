@@ -210,4 +210,28 @@
   <data name="StatusPending.Text" xml:space="preserve">
     <value>Pending</value>
   </data>
+  <data name="lblPrivateCaptchaKey.Help" xml:space="preserve">
+    <value>Enter the private key from your captcha account. (Get your key &lt;a href="https://www.google.com/recaptcha/admin#whyrecaptcha" target="_blank"&gt;here&lt;/a&gt;)</value>
+  </data>
+  <data name="lblPrivateCaptchaKey.Text" xml:space="preserve">
+    <value>Private reCaptcha Key:</value>
+  </data>
+  <data name="lblCompareFirstNameLastName.Help" xml:space="preserve">
+    <value>If checked, a check is being done if the firstname is not equal to the lastname. Note that you will have to setup your form template to include both fields!</value>
+  </data>
+  <data name="lblCompareFirstNameLastName.Text" xml:space="preserve">
+    <value>Compare firstname with lastname:</value>
+  </data>
+  <data name="lblEmailRegex.Help" xml:space="preserve">
+    <value>Enter the regular expression for validating e-mail adresses</value>
+  </data>
+  <data name="lblEmailRegex.Text" xml:space="preserve">
+    <value>Regex Validation for E-Mail Adresses:</value>
+  </data>
+  <data name="lblValidateEmailThroughRegex.Help" xml:space="preserve">
+    <value>If checked, e-mail adresses will be verified against the regular expression below</value>
+  </data>
+  <data name="lblValidateEmailThroughRegex.Text" xml:space="preserve">
+    <value>Validate e-mail through Regex:</value>
+  </data>
 </root>

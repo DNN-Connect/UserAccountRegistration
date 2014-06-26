@@ -62,3 +62,23 @@
      <dnn:Label ID="lblInterface" runat="server" Text="External Interface:"></dnn:Label>
      <asp:TextBox ID="txtInterface" runat="server"></asp:TextBox>
 </div>
+
+<div class="dnnFormItem">
+     <dnn:Label ID="lblPrivateCaptchaKey" runat="server" Text="External Interface:"></dnn:Label>
+     <asp:TextBox ID="txtPrivateCaptchaKey" runat="server"></asp:TextBox>
+</div>
+
+<div class="dnnFormItem">
+     <dnn:Label ID="lblCompareFirstNameLastName" runat="server" Text="Compare Firstname and Lastname:"></dnn:Label>
+     <asp:CheckBox ID="chkCompareFirstNameLastName" runat="server" />
+</div>
+
+<div class="dnnFormItem">
+     <dnn:Label ID="lblValidateEmailThroughRegex" runat="server" Text="Validate e-mail through Regex:"></dnn:Label>
+     <asp:CheckBox ID="chkValidateEmailThroughRegex" runat="server" />
+</div>
+
+<div class="dnnFormItem">
+     <dnn:Label ID="lblEmailRegex" runat="server" Text="Regex Validation for E-Mail Adresses:"></dnn:Label>
+     <asp:TextBox ID="txtEmailRegex" runat="server"></asp:TextBox>
+</div>

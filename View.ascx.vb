@@ -9,6 +9,8 @@ Imports DotNetNuke
 Imports DotNetNuke.Services.Localization
 Imports DotNetNuke.Common.Globals
 Imports DotNetNuke.Common.Utilities
+Imports System.Net
+Imports System.IO
 
 Namespace Connect.Modules.UserManagement.AccountRegistration
 
@@ -46,7 +48,49 @@ Namespace Connect.Modules.UserManagement.AccountRegistration
         End Sub
 
         Protected Sub btnUpdate_Click(ByVal sender As Object, ByVal e As System.EventArgs)
-            Register()
+
+            Dim blnHasCaptchaControl As Boolean = False
+            Dim blnIsValid As Boolean = True
+            Dim strResultCode As String = ""
+
+            Dim checkControl As Control = FindControlRecursive(plhRegister, plhRegister.ID & "_ReCaptchaPanel")
+            If Not checkControl Is Nothing Then
+                blnHasCaptchaControl = True
+                blnIsValid = False
+            End If
+
+            If blnHasCaptchaControl Then
+
+                ReCaptcha.Validate(ReCaptchaKey, blnIsValid, strResultCode)
+
+            End If
+
+            If blnIsValid Then
+
+                Register()
+
+            Else
+
+                pnlError.Visible = True
+                pnlSuccess.Visible = False
+                Select Case strResultCode.ToLower
+                    Case "invalid-site-private-key"
+                        'reCaptach set up not correct, register anyway.
+                        Register()
+                    Case "invalid-request-cookie"
+                        lblError.Text = "The challenge solution was not correct"
+                    Case "incorrect-captcha-sol"
+                        lblError.Text = "The challenge solution was not correct"
+                    Case "captcha-timeout"
+                        lblError.Text = "You have waited too long for submitting the form"
+                    Case "recaptcha-not-reachable"
+                        'reCaptach server not reachable. Register anyway.
+                        Register()
+                    Case Else
+                        lblError.Text = "Unknown reCaptcha error."
+                End Select
+            End If
+
         End Sub
 
         Protected Sub btnLogin_Click(ByVal sender As Object, ByVal e As System.EventArgs)
@@ -212,7 +256,7 @@ Namespace Connect.Modules.UserManagement.AccountRegistration
             blnUpdateLastname = (Not txtLastName Is Nothing)
 
 
-            If (blnUpdateFirstname And blnUpdateLastname) Then
+            If CompareFirstNameLastName AndAlso (blnUpdateFirstname And blnUpdateLastname) Then
                 If txtLastName.Text.ToLower.Trim = txtFirstName.Text.ToLower.Trim Then
                     strMessages.Add("Error_LastnameLikeFirstname")
                     AddErrorIndicator(Constants.User_Firstname, plhRegister)
