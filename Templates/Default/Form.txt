@@ -43,28 +43,6 @@
 		  [REQUIRED:USER:Password2]
 		</div>
 
-		<div class="dnnFormItem dnnClear">
-		  [DNNLBL:USER:PasswordQuestion:HideRequired]
-		  [CTL:USER:PasswordQuestion]
-		  [REQUIRED:USER:PasswordQuestion]
-		</div>
-
-		<div class="dnnFormItem dnnClear">
-		  [DNNLBL:USER:PasswordAnswer:HideRequired]
-		  [CTL:USER:PasswordAnswer]
-		  [REQUIRED:USER:PasswordAnswer]
-		</div>
-
-		<div>Would you like to join the DNN-Connect Association?</div>
-
-		<div class="dnnFormItem dnnClear">
-		  [DNNLBL:STATIC:Yes, join:Check here if you want to join the association]
-		  [CTL:ROLEMEMBERSHIP:Association Member:Pending]
-		</div>
-
-		<div>
-			[RECAPTCHA:6LeT2vUSAAAAAK9YCM_6tQw3dbNUYnDVnEi4XEnQ]
-		</div>
 		<ul class="dnnActions">
 		  <li>[CTL:UPDATEBUTTON:CreateAccount]</li>
 		</ul>

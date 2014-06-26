@@ -255,20 +255,19 @@ Namespace Connect.Modules.UserManagement.AccountRegistration
             Dim txtLastName As TextBox = CType(FindControlRecursive(plhRegister, plhRegister.ID & "_" & Constants.ControlId_Lastname), TextBox)
             blnUpdateLastname = (Not txtLastName Is Nothing)
 
-
-            If CompareFirstNameLastName AndAlso (blnUpdateFirstname And blnUpdateLastname) Then
-                If txtLastName.Text.ToLower.Trim = txtFirstName.Text.ToLower.Trim Then
-                    strMessages.Add("Error_LastnameLikeFirstname")
-                    AddErrorIndicator(Constants.User_Firstname, plhRegister)
-                End If
-            End If
-
             If blnUpdateLastname Then
                 If Not IsValidUserAttribute(Constants.User_Lastname, plhRegister) Then
                     strMessages.Add("Error_MissingLastname")
                     AddErrorIndicator(Constants.User_Lastname, plhRegister)
                 Else
                     RemoveErrorIndicator(Constants.User_Lastname, plhRegister, True)
+                End If
+            End If
+
+            If CompareFirstNameLastName AndAlso (blnUpdateFirstname And blnUpdateLastname) Then
+                If txtLastName.Text.ToLower.Trim = txtFirstName.Text.ToLower.Trim Then
+                    strMessages.Add("Error_LastnameLikeFirstname")
+                    AddErrorIndicator(Constants.User_Firstname, plhRegister)
                 End If
             End If
 
