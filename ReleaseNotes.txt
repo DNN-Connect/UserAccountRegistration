@@ -9,6 +9,19 @@
 	<h3>Release Notes</h3>
 
 	<p class="Owner">
+		<b>Version 01.02.01</b><br /><br />
+	</p>
+	<p>Minor Release</p>	
+	<ul>
+		<li>Added setting for regular expresion on e-mail validation (https://github.com/DNN-Connect/UserAccountRegistration/issues/3)</li>
+		<li>Added setting for comparing lastname with firstname (https://github.com/DNN-Connect/UserAccountRegistration/issues/2)</li>
+		<li>Add support for re-captcha control. You may now add a token in the form [RECAPTCHA:Your_Public_Key:Your_Theme]. You can obtain your key pair from Google: https://www.google.com/recaptcha/admin#whyrecaptcha</li>
+		<li>Added setting for reCaptach private key. Needed for validation of challenge.
+		<li>FIX: Email Templates appended rather than overwritten (https://github.com/DNN-Connect/UserAccountRegistration/issues/4)</li>
+		<li>FIX: Save Template & Exit does not exit (https://github.com/DNN-Connect/UserAccountRegistration/issues/5)</li>
+	</ul>
+
+	<p class="Owner">
 		<b>Version 01.02.00</b><br /><br />
 	</p>
 	<p>Extended Token Support</p>	

@@ -1,6 +1,6 @@
 <dotnetnuke type="Package" version="5.0">
   <packages>
-    <package name="Connect AccountRegistrationForm" type="Module" version="01.02.00">
+    <package name="Connect AccountRegistrationForm" type="Module" version="01.02.01">
       <friendlyName>Connect: AccountRegistration</friendlyName>
       <description>A community module that handles account registrations and login in DNN</description>
       <iconFile>Images/icon_extensions.gif</iconFile>
