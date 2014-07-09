@@ -139,11 +139,11 @@
     <None Include="BuildScripts\MSBuild.Community.Tasks.Targets" />
     <None Include="Connect_AccountRegistration.dnn" />
     <Content Include="Templates.ascx" />
-    <Content Include="Templates\Default - Copy\Email.Admin.txt" />
-    <Content Include="Templates\Default - Copy\Email.User.Private.txt" />
-    <Content Include="Templates\Default - Copy\Email.User.txt" />
-    <Content Include="Templates\Default - Copy\Email.User.Verified.txt" />
-    <Content Include="Templates\Default - Copy\Form.txt" />
+    <Content Include="Templates\Connect\Email.Admin.txt" />
+    <Content Include="Templates\Connect\Email.User.Private.txt" />
+    <Content Include="Templates\Connect\Email.User.txt" />
+    <Content Include="Templates\Connect\Email.User.Verified.txt" />
+    <Content Include="Templates\Connect\Form.txt" />
     <Content Include="Templates\Default\Email.Admin.txt" />
     <Content Include="Templates\Default\Email.User.Private.txt" />
     <Content Include="Templates\Default\Email.User.txt" />
