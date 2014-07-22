@@ -766,8 +766,8 @@ Namespace Connect.Modules.UserManagement.AccountRegistration
                 Dim objInterface As Object = Nothing
 
                 If ExternalInterface.Contains(",") Then
-                    Dim strAssembly As String = ExternalInterface.Split(Char.Parse(","))(0).Trim
-                    Dim strClass As String = ExternalInterface.Split(Char.Parse(","))(1).Trim
+                    Dim strClass As String = ExternalInterface.Split(Char.Parse(","))(0).Trim
+                    Dim strAssembly As String = ExternalInterface.Split(Char.Parse(","))(1).Trim
                     objInterface = System.Activator.CreateInstance(strAssembly, strClass).Unwrap
                 End If
 
