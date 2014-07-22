@@ -321,4 +321,22 @@
   <data name="lblEmailRegex.Text" xml:space="preserve">
     <value />
   </data>
+  <data name="captcha-timeout.Error" xml:space="preserve">
+    <value>You have waited too long for submitting the form</value>
+  </data>
+  <data name="incorrect-captcha-sol.Error" xml:space="preserve">
+    <value>The challenge solution was not correct</value>
+  </data>
+  <data name="invalid-request-cookie.Error" xml:space="preserve">
+    <value>The challenge solution was not correct</value>
+  </data>
+  <data name="invalid-site-private-key.Error" xml:space="preserve">
+    <value>ReCaptach key error.  Check your reCaptach account!</value>
+  </data>
+  <data name="recaptcha-common-error.Error" xml:space="preserve">
+    <value>Unknown reCaptcha error</value>
+  </data>
+  <data name="recaptcha-not-reachable.Error" xml:space="preserve">
+    <value>ReCaptcha server not reachable. Check your reCaptach account!</value>
+  </data>
 </root>

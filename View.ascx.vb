@@ -32,6 +32,7 @@ Imports DotNetNuke.Common.Globals
 Imports DotNetNuke.Common.Utilities
 Imports System.Net
 Imports System.IO
+Imports DotNetNuke.Services.Log.EventLog
 
 Namespace Connect.Modules.UserManagement.AccountRegistration
 
@@ -96,19 +97,21 @@ Namespace Connect.Modules.UserManagement.AccountRegistration
                 pnlSuccess.Visible = False
                 Select Case strResultCode.ToLower
                     Case "invalid-site-private-key"
-                        'reCaptach set up not correct, register anyway.
+                        'reCaptcha set up not correct, register anyway.
+                        DotNetNuke.Services.Exceptions.LogException(New Exception(Localization.GetString(strResultCode.ToLower & ".Error", LocalResourceFile)))
                         Register()
                     Case "invalid-request-cookie"
-                        lblError.Text = "The challenge solution was not correct"
+                        lblError.Text = Localization.GetString(strResultCode.ToLower & ".Error", LocalResourceFile)
                     Case "incorrect-captcha-sol"
-                        lblError.Text = "The challenge solution was not correct"
+                        lblError.Text = Localization.GetString(strResultCode.ToLower & ".Error", LocalResourceFile)
                     Case "captcha-timeout"
-                        lblError.Text = "You have waited too long for submitting the form"
+                        lblError.Text = Localization.GetString(strResultCode.ToLower & ".Error", LocalResourceFile)
                     Case "recaptcha-not-reachable"
-                        'reCaptach server not reachable. Register anyway.
+                        'reCaptcha server not reachable. Register anyway.
+                        DotNetNuke.Services.Exceptions.LogException(New Exception(Localization.GetString(strResultCode.ToLower & ".Error", LocalResourceFile)))
                         Register()
                     Case Else
-                        lblError.Text = "Unknown reCaptcha error."
+                        lblError.Text = Localization.GetString("recaptcha-common-error.Error", LocalResourceFile)
                 End Select
             End If
 
