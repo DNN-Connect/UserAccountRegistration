@@ -7,17 +7,18 @@
 <hr/>
 <div class="License">
 	<h3>Release Notes</h3>
-
 	<p class="Owner">
-		<b>Version 01.02.02</b><br /><br />
+		<b>Version 01.02.02</b>
 	</p>
 	<p>Minor Release</p>	
 	<ul>
-		<li>Moved license from BSD to GPLv2</li>
+		<li>moved license from BSD to GPLv2</li>
+		<li>removed unneeded SPROCs</li>
+		<li>interface specification should be Class, Assembly (https://github.com/DNN-Connect/UserAccountRegistration/issues/9)</li>
+		<li>improvements to reCaptcha feedback messages (https://github.com/DNN-Connect/UserAccountRegistration/issues/6)</li>
 	</ul>
-
 	<p class="Owner">
-		<b>Version 01.02.01</b><br /><br />
+		<b>Version 01.02.01</b>
 	</p>
 	<p>Minor Release</p>	
 	<ul>
@@ -28,9 +29,8 @@
 		<li>FIX: Email Templates appended rather than overwritten (https://github.com/DNN-Connect/UserAccountRegistration/issues/4)</li>
 		<li>FIX: Save Template & Exit does not exit (https://github.com/DNN-Connect/UserAccountRegistration/issues/5)</li>
 	</ul>
-
 	<p class="Owner">
-		<b>Version 01.02.00</b><br /><br />
+		<b>Version 01.02.00</b>
 	</p>
 	<p>Extended Token Support</p>	
 	<h4>Changes</h4>
@@ -44,9 +44,8 @@
 			<li>New control token: [CTL:ROLEMEMBERSHP:XXX:Pending] will do the same but will rather make the role membership pending.</li>
 			<li>New Setting: When adding users to a role through the modulesettings you can now set the status of that role membership</li>
 	</ul>
-
 	<p class="Owner">
-		<b>Version 01.00.01</b><br /><br />
+		<b>Version 01.00.01</b>
 	</p>
 	<p>Service release. Mainly focused on better support for password management in newer dnn installations where password retrieval is disabled.</p>	
 	<h4>Changes</h4>
@@ -54,9 +53,8 @@
 			<li>New token in e-mail templates: [RESETLINK]</li>
 			<li>New token in forms: [PASSWORDCURRENT]; needed for setting a new password in the account update form</li>
 	</ul>
-
 	<p class="Owner">
-		<b>Version 01.00.00</b><br /><br />
+		<b>Version 01.00.00</b>
 	</p>
 	<p>Initial release of Account registration, login and update module. The formly module dnnWerk.Users has been separated into dedocated modules for registering and updating account. The main task for this release was to extract the actual modules from the original package. I do have improved the feature set in various ways though:</p>	
 	<h4>Changes</h4>
