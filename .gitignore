@@ -161,3 +161,4 @@ Resources.zip
 *.pdb
 obj/Release/Connect.Modules.AccountRegistration.xml
 *.cache
+Resources.zip.manifest
