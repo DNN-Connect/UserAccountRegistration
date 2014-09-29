@@ -41,7 +41,8 @@ Namespace Connect.Modules.UserManagement.AccountRegistration
                     If (settings.Contains("ExternalInterface")) Then txtInterface.Text = settings("ExternalInterface").ToString()
                     If (settings.Contains("ShowUserName")) Then drpUsernameMode.SelectedValue = settings("ShowUserName").ToString()
                     If (settings.Contains("ShowDisplayName")) Then drpDisplaynameMode.SelectedValue = settings("ShowDisplayName").ToString()
-                    If (settings.Contains("RedirectAfterSubmit")) Then drpRedirectAfterSubmit.SelectedValue = settings("RedirectAfterSubmit").ToString()
+                    If (Settings.Contains("RedirectAfterSubmit")) Then drpRedirectAfterSubmit.SelectedValue = Settings("RedirectAfterSubmit").ToString()
+                    If (Settings.Contains("RedirectAfterLogin")) Then drpRedirectAfterLogin.SelectedValue = Settings("RedirectAfterLogin").ToString()
                     If (settings.Contains("UsermanagementTab")) Then drpUserManagementTab.SelectedValue = settings("UsermanagementTab").ToString()
                     If (settings.Contains("AddToRoleOnSubmit")) Then drpAddToRole.SelectedValue = settings("AddToRoleOnSubmit").ToString()
                     If (settings.Contains("NotifyRole")) Then drpNotifyRole.Items.FindByText(settings("NotifyRole").ToString()).Selected = True
@@ -74,6 +75,7 @@ Namespace Connect.Modules.UserManagement.AccountRegistration
                 objModules.UpdateTabModuleSetting(TabModuleId, "ShowUserName", drpUsernameMode.SelectedValue)
                 objModules.UpdateTabModuleSetting(TabModuleId, "ShowDisplayName", drpDisplaynameMode.SelectedValue)
                 objModules.UpdateTabModuleSetting(TabModuleId, "RedirectAfterSubmit", drpRedirectAfterSubmit.SelectedValue)
+                objModules.UpdateTabModuleSetting(TabModuleId, "RedirectAfterLogin", drpRedirectAfterLogin.SelectedValue)
                 objModules.UpdateTabModuleSetting(TabModuleId, "UsermanagementTab", drpUserManagementTab.SelectedValue)
                 objModules.UpdateTabModuleSetting(TabModuleId, "AddToRoleOnSubmit", drpAddToRole.SelectedValue)
                 'we need the rolename for sending mails to users, therefor store here the rolename rather than the id!
@@ -95,6 +97,9 @@ Namespace Connect.Modules.UserManagement.AccountRegistration
 
             drpRedirectAfterSubmit.DataSource = tabs
             drpRedirectAfterSubmit.DataBind()
+
+            drpRedirectAfterLogin.DataSource = tabs
+            drpRedirectAfterLogin.DataBind()
 
             drpUserManagementTab.DataSource = tabs
             drpUserManagementTab.DataBind()

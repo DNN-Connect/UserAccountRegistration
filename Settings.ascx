@@ -24,6 +24,12 @@
     </asp:DropDownList>    
 </div>
 
+
+<div class="dnnFormItem">
+    <dnn:Label ID="lblRedirectAfterLogin" runat="server" Text="Redirect after login:"></dnn:Label>
+    <asp:DropDownList ID="drpRedirectAfterLogin" runat="server" DataTextField="IndentedTabName" DataValueField="TabId" />
+</div>
+
 <div class="dnnFormItem">
     <dnn:Label ID="lblRedirectAfterSubmit" runat="server" Text="Redirect after submit:"></dnn:Label>
     <asp:DropDownList ID="drpRedirectAfterSubmit" runat="server" DataTextField="IndentedTabName" DataValueField="TabId" />

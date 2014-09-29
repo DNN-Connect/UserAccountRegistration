@@ -234,4 +234,10 @@
   <data name="lblValidateEmailThroughRegex.Text" xml:space="preserve">
     <value>Validate e-mail through Regex:</value>
   </data>
+  <data name="lblRedirectAfterLogin.Help" xml:space="preserve">
+    <value>If the template also allows users to login using this module you may define a page that the user is being redirected to after logging in</value>
+  </data>
+  <data name="lblRedirectAfterLogin.Text" xml:space="preserve">
+    <value>Redirect after login:</value>
+  </data>
 </root>

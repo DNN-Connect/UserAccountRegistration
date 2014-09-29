@@ -51,6 +51,24 @@ Namespace Connect.Modules.UserManagement.AccountRegistration
         Protected WithEvents drpDisplaynameMode As Global.System.Web.UI.WebControls.DropDownList
 
         '''<summary>
+        '''lblRedirectAfterLogin control.
+        '''</summary>
+        '''<remarks>
+        '''Auto-generated field.
+        '''To modify move field declaration from designer file to code-behind file.
+        '''</remarks>
+        Protected WithEvents lblRedirectAfterLogin As Global.DotNetNuke.UI.UserControls.LabelControl
+
+        '''<summary>
+        '''drpRedirectAfterLogin control.
+        '''</summary>
+        '''<remarks>
+        '''Auto-generated field.
+        '''To modify move field declaration from designer file to code-behind file.
+        '''</remarks>
+        Protected WithEvents drpRedirectAfterLogin As Global.System.Web.UI.WebControls.DropDownList
+
+        '''<summary>
         '''lblRedirectAfterSubmit control.
         '''</summary>
         '''<remarks>
