@@ -182,9 +182,9 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>62597</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://dnn7/DesktopModules/Connect/AccountRegistration</IISUrl>
+          <IISUrl>http://dnnconnect/DesktopModules/Connect/AccountRegistration</IISUrl>
           <OverrideIISAppRootUrl>True</OverrideIISAppRootUrl>
-          <IISAppRootUrl>http://dnn7/</IISAppRootUrl>
+          <IISAppRootUrl>http://dnnconnect/</IISAppRootUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
