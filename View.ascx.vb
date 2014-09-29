@@ -43,7 +43,6 @@ Namespace Connect.Modules.UserManagement.AccountRegistration
 
 #Region "Event Handlers"
 
-
 #Region "Event Handlers"
 
         Protected Sub Page_Init(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Init
@@ -125,6 +124,12 @@ Namespace Connect.Modules.UserManagement.AccountRegistration
             HandleLostPassword()
         End Sub
 
+        Protected Sub Page_PreRender(sender As Object, e As System.EventArgs) Handles Me.PreRender
+
+            ManageRegionLabel(Me.plhRegister)
+
+        End Sub
+
 #End Region
 
 #Region "Private Methods"
@@ -157,17 +162,18 @@ Namespace Connect.Modules.UserManagement.AccountRegistration
                         If Not chkRemember Is Nothing Then
                             blnPersistent = chkRemember.Checked
                         End If
+
                         UserController.UserLogin(PortalId, objUser, PortalSettings.PortalName, Request.UserHostAddress, blnPersistent)
 
                         If Not Request.QueryString("ReturnURL") Is Nothing Then
                             Response.Redirect(Server.UrlDecode(Request.QueryString("ReturnURL")), True)
                         End If
 
-                        If RedirectAfterSubmit <> Null.NullInteger Then
-                            Response.Redirect(NavigateURL(RedirectAfterSubmit))
+                        If RedirectAfterLogin <> Null.NullInteger Then
+                            Response.Redirect(NavigateURL(RedirectAfterLogin))
+                        Else
+                            Response.Redirect(NavigateURL(PortalSettings.HomeTabId))
                         End If
-
-                        Response.Redirect(NavigateURL(PortalSettings.HomeTabId))
 
                     Case UserLoginStatus.LOGIN_USERLOCKEDOUT
 
@@ -611,94 +617,11 @@ Namespace Connect.Modules.UserManagement.AccountRegistration
             End If
 
             If strAdminBody <> "" Then
-
-                strAdminBody = strAdminBody.Replace("[PORTALURL]", PortalSettings.PortalAlias.HTTPAlias)
-                strAdminBody = strAdminBody.Replace("[PORTALNAME]", PortalSettings.PortalName)
-                strAdminBody = strAdminBody.Replace("[USERID]", oUser.UserID)
-                strAdminBody = strAdminBody.Replace("[DISPLAYNAME]", oUser.DisplayName)
-
-                If MembershipProvider.Instance().PasswordRetrievalEnabled Then
-                    strAdminBody = strAdminBody.Replace("[PASSWORD]", MembershipProvider.Instance().GetPassword(oUser, ""))
-                End If
-
-                strAdminBody = strAdminBody.Replace("[USERNAME]", oUser.Username)
-                strAdminBody = strAdminBody.Replace("[FIRSTNAME]", oUser.FirstName)
-                strAdminBody = strAdminBody.Replace("[LASTNAME]", oUser.LastName)
-                strAdminBody = strAdminBody.Replace("[EMAIL]", oUser.Email)
-
-                If PortalSettings.UserRegistration = PortalRegistrationType.PrivateRegistration Then
-                    strAdminBody = strAdminBody.Replace("[ADMINACTION]", Localization.GetString("AuthorizeAccount.Action", LocalResourceFile))
-                    strAdminBody = strAdminBody.Replace("[REGISTRATIONMODE]", Localization.GetString("RegistrationMode_Private.Text", LocalResourceFile))
-                ElseIf PortalSettings.UserRegistration = PortalRegistrationType.VerifiedRegistration Then
-                    strAdminBody = strAdminBody.Replace("[ADMINACTION]", Localization.GetString("VerifyAccount.Action", LocalResourceFile))
-                    strAdminBody = strAdminBody.Replace("[REGISTRATIONMODE]", Localization.GetString("RegistrationMode_Verified.Text", LocalResourceFile))
-                Else
-                    strAdminBody = strAdminBody.Replace("[ADMINACTION]", Localization.GetString("NoAction.Action", LocalResourceFile))
-                    strAdminBody = strAdminBody.Replace("[REGISTRATIONMODE]", Localization.GetString("RegistrationMode_Public.Text", LocalResourceFile))
-                End If
-
-                strAdminBody = strAdminBody.Replace("[USERURL]", NavigateURL(UsermanagementTab, "", "uid=" & oUser.UserID.ToString, "RoleId=" & PortalSettings.RegisteredRoleId.ToString))
-
-
-                Dim ctrlRoles As New RoleController
-                Dim NotificationUsers As ArrayList = ctrlRoles.GetUsersByRoleName(PortalId, NotifyRole)
-                For Each NotificationUser As UserInfo In NotificationUsers
-                    Try
-
-                        strAdminBody = strAdminBody.Replace("[RECIPIENTUSERID]", NotificationUser.UserID.ToString)
-                        strAdminBody = strAdminBody.Replace("[USERID]", NotificationUser.UserID.ToString)
-
-                        DotNetNuke.Services.Mail.Mail.SendMail(PortalSettings.Email, NotificationUser.Email, "", String.Format(Localization.GetString("NotifySubject_UserRegistered.Text", LocalResourceFile), PortalSettings.PortalName), strAdminBody, "", "HTML", "", "", "", "")
-                    Catch
-                    End Try
-                Next
-
+                ProcessAdminNotification(strAdminBody, oUser)
             End If
 
             If strUserBody <> "" Then
-
-                strUserBody = strUserBody.Replace("[PORTALURL]", PortalSettings.PortalAlias.HTTPAlias)
-                strUserBody = strUserBody.Replace("[PORTALNAME]", PortalSettings.PortalName)
-                strUserBody = strUserBody.Replace("[USERID]", oUser.UserID)
-                strUserBody = strUserBody.Replace("[DISPLAYNAME]", oUser.DisplayName)
-
-                If MembershipProvider.Instance().PasswordRetrievalEnabled Then
-                    strUserBody = strUserBody.Replace("[PASSWORD]", MembershipProvider.Instance().GetPassword(oUser, ""))
-                End If
-
-                strUserBody = strUserBody.Replace("[USERNAME]", oUser.Username)
-                strUserBody = strUserBody.Replace("[FIRSTNAME]", oUser.FirstName)
-                strUserBody = strUserBody.Replace("[LASTNAME]", oUser.LastName)
-                strUserBody = strUserBody.Replace("[EMAIL]", oUser.Email)
-                strUserBody = strUserBody.Replace("[VERIFICATIONCODE]", PortalSettings.PortalId.ToString & "-" & oUser.UserID.ToString)
-
-                strUserBody = strUserBody.Replace("[RECIPIENTUSERID]", oUser.UserID.ToString)
-                strUserBody = strUserBody.Replace("[USERID]", oUser.UserID.ToString)
-
-                If PortalSettings.UserTabId <> Null.NullInteger Then
-                    strUserBody = strUserBody.Replace("[USERURL]", NavigateURL(PortalSettings.UserTabId))
-                Else
-                    strUserBody = strUserBody.Replace("[USERURL]", NavigateURL(PortalSettings.HomeTabId, "ctl=Profile"))
-                End If
-
-                Dim returnurl As String = ""
-                Dim loginurl As String = ""
-                Dim verificationkey As String = PortalSettings.PortalId.ToString & "-" & oUser.UserID.ToString
-
-                If PortalSettings.LoginTabId <> Null.NullInteger Then
-                    loginurl = NavigateURL(PortalSettings.LoginTabId, "", "VerificationCode=" & verificationkey)
-                Else
-                    loginurl = NavigateURL(PortalSettings.HomeTabId, "", "ctl=Login", "VerificationCode=" & verificationkey)
-                End If
-
-                strUserBody = strUserBody.Replace("[VERIFYURL]", loginurl)
-
-                Try
-                    DotNetNuke.Services.Mail.Mail.SendMail(PortalSettings.Email, oUser.Email, "", String.Format(Localization.GetString("NotifySubject_UserDetails.Text", LocalResourceFile), PortalSettings.PortalName), strUserBody, "", "HTML", "", "", "", "")
-                Catch
-                End Try
-
-
+                ProcessUserNotification(strUserBody, oUser)
             End If
 
             'add to role
@@ -763,6 +686,20 @@ Namespace Connect.Modules.UserManagement.AccountRegistration
             lblSucess.Text = "<ul><li>" & String.Format(Localization.GetString("RegisterSuccess", LocalResourceFile), NavigateURL(PortalSettings.HomeTabId)) & "</li></ul>"
             pnlSuccess.Visible = True
 
+            ProcessInterfaces(oUser)
+
+            'the following might not be processed if the interfaces manipulate the current response!
+            If Not Request.QueryString("ReturnURL") Is Nothing Then
+                Response.Redirect(Server.UrlDecode(Request.QueryString("ReturnURL")), True)
+            End If
+
+            If RedirectAfterSubmit <> Null.NullInteger Then
+                Response.Redirect(NavigateURL(RedirectAfterSubmit))
+            End If
+
+        End Sub
+
+        Private Sub ProcessInterfaces(CurrentUser As UserInfo)
 
             If ExternalInterface <> Null.NullString Then
 
@@ -775,28 +712,107 @@ Namespace Connect.Modules.UserManagement.AccountRegistration
                 End If
 
                 If Not objInterface Is Nothing Then
-                    CType(objInterface, Interfaces.iAccountRegistration).FinalizeAccountRegistration(Server, Response, Request, oUser)
+                    CType(objInterface, Interfaces.iAccountRegistration).FinalizeAccountRegistration(Server, Response, Request, CurrentUser)
                 End If
 
             End If
 
-            If Not Request.QueryString("ReturnURL") Is Nothing Then
-                Response.Redirect(Server.UrlDecode(Request.QueryString("ReturnURL")), True)
+        End Sub
+
+        Private Sub ProcessAdminNotification(ByVal Body As String, CurrentUser As UserInfo)
+
+
+            Body = Body.Replace("[PORTALURL]", PortalSettings.PortalAlias.HTTPAlias)
+            Body = Body.Replace("[PORTALNAME]", PortalSettings.PortalName)
+            Body = Body.Replace("[USERID]", CurrentUser.UserID)
+            Body = Body.Replace("[DISPLAYNAME]", CurrentUser.DisplayName)
+
+            If MembershipProvider.Instance().PasswordRetrievalEnabled Then
+                Body = Body.Replace("[PASSWORD]", MembershipProvider.Instance().GetPassword(User, ""))
             End If
 
-            If RedirectAfterSubmit <> Null.NullInteger Then
-                Response.Redirect(NavigateURL(RedirectAfterSubmit))
+            Body = Body.Replace("[USERNAME]", CurrentUser.Username)
+            Body = Body.Replace("[FIRSTNAME]", CurrentUser.FirstName)
+            Body = Body.Replace("[LASTNAME]", CurrentUser.LastName)
+            Body = Body.Replace("[EMAIL]", CurrentUser.Email)
+
+            If PortalSettings.UserRegistration = PortalRegistrationType.PrivateRegistration Then
+                Body = Body.Replace("[ADMINACTION]", Localization.GetString("AuthorizeAccount.Action", LocalResourceFile))
+                Body = Body.Replace("[REGISTRATIONMODE]", Localization.GetString("RegistrationMode_Private.Text", LocalResourceFile))
+            ElseIf PortalSettings.UserRegistration = PortalRegistrationType.VerifiedRegistration Then
+                Body = Body.Replace("[ADMINACTION]", Localization.GetString("VerifyAccount.Action", LocalResourceFile))
+                Body = Body.Replace("[REGISTRATIONMODE]", Localization.GetString("RegistrationMode_Verified.Text", LocalResourceFile))
+            Else
+                Body = Body.Replace("[ADMINACTION]", Localization.GetString("NoAction.Action", LocalResourceFile))
+                Body = Body.Replace("[REGISTRATIONMODE]", Localization.GetString("RegistrationMode_Public.Text", LocalResourceFile))
             End If
+
+            Body = Body.Replace("[USERURL]", NavigateURL(UsermanagementTab, "", "uid=" & CurrentUser.UserID.ToString, "RoleId=" & PortalSettings.RegisteredRoleId.ToString))
+
+            Dim ctrlRoles As New RoleController
+            Dim NotificationUsers As ArrayList = ctrlRoles.GetUsersByRoleName(PortalId, NotifyRole)
+            For Each NotificationUser As UserInfo In NotificationUsers
+                Try
+
+                    Body = Body.Replace("[RECIPIENTUSERID]", NotificationUser.UserID.ToString)
+                    Body = Body.Replace("[USERID]", NotificationUser.UserID.ToString)
+
+                    DotNetNuke.Services.Mail.Mail.SendMail(PortalSettings.Email, NotificationUser.Email, "", String.Format(Localization.GetString("NotifySubject_UserRegistered.Text", LocalResourceFile), PortalSettings.PortalName), Body, "", "HTML", "", "", "", "")
+                Catch
+                End Try
+            Next
+
+        End Sub
+
+        Private Sub ProcessUserNotification(ByVal Body As String, CurrentUser As UserInfo)
+
+            Body = Body.Replace("[PORTALURL]", PortalSettings.PortalAlias.HTTPAlias)
+            Body = Body.Replace("[PORTALNAME]", PortalSettings.PortalName)
+            Body = Body.Replace("[USERID]", CurrentUser.UserID)
+            Body = Body.Replace("[DISPLAYNAME]", CurrentUser.DisplayName)
+
+            If MembershipProvider.Instance().PasswordRetrievalEnabled Then
+                Body = Body.Replace("[PASSWORD]", MembershipProvider.Instance().GetPassword(User, ""))
+            End If
+
+            Body = Body.Replace("[USERNAME]", CurrentUser.Username)
+            Body = Body.Replace("[FIRSTNAME]", CurrentUser.FirstName)
+            Body = Body.Replace("[LASTNAME]", CurrentUser.LastName)
+            Body = Body.Replace("[EMAIL]", CurrentUser.Email)
+
+            'verification code is now expected to be encrypted. Bummer.
+            'Body = Body.Replace("[VERIFICATIONCODE]", PortalSettings.PortalId.ToString & "-" & CurrentUser.UserID.ToString)            
+            Body = Body.Replace("[VERIFICATIONCODE]", Utilities.GetVerificationCode(CurrentUser))
+
+            Body = Body.Replace("[RECIPIENTUSERID]", CurrentUser.UserID.ToString)
+            Body = Body.Replace("[USERID]", CurrentUser.UserID.ToString)
+
+            If PortalSettings.UserTabId <> Null.NullInteger Then
+                Body = Body.Replace("[USERURL]", NavigateURL(PortalSettings.UserTabId))
+            Else
+                Body = Body.Replace("[USERURL]", NavigateURL(PortalSettings.HomeTabId, "ctl=Profile"))
+            End If
+
+            Dim returnurl As String = ""
+            Dim loginurl As String = ""
+            Dim verificationkey As String = PortalSettings.PortalId.ToString & "-" & CurrentUser.UserID.ToString
+
+            If PortalSettings.LoginTabId <> Null.NullInteger Then
+                loginurl = NavigateURL(PortalSettings.LoginTabId, "", "VerificationCode=" & verificationkey)
+            Else
+                loginurl = NavigateURL(PortalSettings.HomeTabId, "", "ctl=Login", "VerificationCode=" & verificationkey)
+            End If
+
+            Body = Body.Replace("[VERIFYURL]", loginurl)
+
+            Try
+                DotNetNuke.Services.Mail.Mail.SendMail(PortalSettings.Email, CurrentUser.Email, "", String.Format(Localization.GetString("NotifySubject_UserDetails.Text", LocalResourceFile), PortalSettings.PortalName), Body, "", "HTML", "", "", "", "")
+            Catch
+            End Try
 
         End Sub
 
 #End Region
-
-        Protected Sub Page_PreRender(sender As Object, e As System.EventArgs) Handles Me.PreRender
-
-            ManageRegionLabel(Me.plhRegister)
-
-        End Sub
 
 #End Region
 
