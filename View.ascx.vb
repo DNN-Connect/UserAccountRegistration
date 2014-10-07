@@ -660,7 +660,17 @@ Namespace Connect.Modules.UserManagement.AccountRegistration
 
             End If
 
-            lblSucess.Text = "<ul><li>" & String.Format(Localization.GetString("RegisterSuccess", LocalResourceFile), NavigateURL(PortalSettings.HomeTabId)) & "</li></ul>"
+            Dim strResult As String = ""
+            Select Case PortalSettings.UserRegistration
+                Case PortalRegistrationType.PublicRegistration
+                    strResult = String.Format(Localization.GetString("RegisterSuccess_Public", LocalResourceFile), NavigateURL(PortalSettings.HomeTabId))
+                Case PortalRegistrationType.PrivateRegistration
+                    strResult = String.Format(Localization.GetString("RegisterSuccess_Private", LocalResourceFile), NavigateURL(PortalSettings.HomeTabId))
+                Case PortalRegistrationType.VerifiedRegistration
+                    strResult = String.Format(Localization.GetString("RegisterSuccess_Verified", LocalResourceFile), NavigateURL(PortalSettings.HomeTabId))
+            End Select
+
+            lblSucess.Text = "<ul><li>" & strResult & "</li></ul>"
             pnlSuccess.Visible = True
 
             'run the final interface if applicable

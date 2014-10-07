@@ -282,7 +282,7 @@
   <data name="PasswordsDontMatch.Text" xml:space="preserve">
     <value>The passwords do not match!</value>
   </data>
-  <data name="RegisterSuccess.Text" xml:space="preserve">
+  <data name="RegisterSuccess_Public.Text" xml:space="preserve">
     <value>Your account has been created sucessfully. &lt;a href="{0}"&gt;Proceed&lt;/a&gt;</value>
   </data>
   <data name="RegistrationMode_Private.Text" xml:space="preserve">
@@ -341,5 +341,11 @@
   </data>
   <data name="Error_Unknown.Text" xml:space="preserve">
     <value>The data you provided is not valid. Please review and try again</value>
+  </data>
+  <data name="RegisterSuccess_Private.Text" xml:space="preserve">
+    <value>Your account has been created sucessfully. We will review your registration as soon as possible and let you know if we have accepted your request. &lt;a href="{0}"&gt;Proceed&lt;/a&gt;</value>
+  </data>
+  <data name="RegisterSuccess_Verified.Text" xml:space="preserve">
+    <value>Your account has been created sucessfully. We have sent you an e-mail containing a verification link. You must verify your identity first by following that link from within that e-mail. &lt;a href="{0}"&gt;Proceed&lt;/a&gt;</value>
   </data>
 </root>
