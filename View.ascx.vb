@@ -209,7 +209,7 @@ Namespace Connect.Modules.UserManagement.AccountRegistration
 
             If blnUpdateUsername Then
                 If Not IsValidUserAttribute(Constants.User_Username, plhRegister) Then
-                    strMessages.Add("Error_MissingUsername")
+                    strMessages.Add(Localization.GetString("Error_MissingUsername", LocalResourceFile))
                     AddErrorIndicator(Constants.User_Username, plhRegister)
                 Else
                     RemoveErrorIndicator(Constants.User_Username, plhRegister, True)
@@ -221,7 +221,7 @@ Namespace Connect.Modules.UserManagement.AccountRegistration
 
             If blnUpdateEmail Then
                 If Not IsValidUserAttribute(Constants.User_Email, plhRegister) Then
-                    strMessages.Add("Error_InvalidEmail")
+                    strMessages.Add(Localization.GetString("Error_InvalidEmail", LocalResourceFile))
                     AddErrorIndicator(Constants.User_Email, plhRegister)
                 Else
                     RemoveErrorIndicator(Constants.User_Email, plhRegister, True)
@@ -234,13 +234,13 @@ Namespace Connect.Modules.UserManagement.AccountRegistration
 
             If blnUpdatePassword Then
                 If Not IsValidUserAttribute(Constants.User_Password1, plhRegister) Then
-                    strMessages.Add("Error_MissingPassword1")
+                    strMessages.Add(Localization.GetString("Error_MissingPassword1", LocalResourceFile))
                     AddErrorIndicator(Constants.User_Password1, plhRegister)
                 Else
                     RemoveErrorIndicator(Constants.User_Password1, plhRegister, True)
                 End If
                 If Not IsValidUserAttribute(Constants.User_Password2, plhRegister) Then
-                    strMessages.Add("Error_MissingPassword2")
+                    strMessages.Add(Localization.GetString("Error_MissingPassword2", LocalResourceFile))
                     AddErrorIndicator(Constants.User_Password2, plhRegister)
                 Else
                     RemoveErrorIndicator(Constants.User_Password2, plhRegister, True)
@@ -251,7 +251,7 @@ Namespace Connect.Modules.UserManagement.AccountRegistration
             Dim blnUpdatePasswordQuestion As Boolean = (Not txtPasswordQuestion Is Nothing)
             If blnUpdatePasswordQuestion Then
                 If Not IsValidUserAttribute(Constants.User_PasswordQuestion, plhRegister) Then
-                    strMessages.Add("Error_MissingPasswordQuestion")
+                    strMessages.Add(Localization.GetString("Error_MissingPasswordQuestion", LocalResourceFile))
                     AddErrorIndicator(Constants.User_PasswordQuestion, plhRegister)
                 Else
                     RemoveErrorIndicator(Constants.User_PasswordQuestion, plhRegister, True)
@@ -262,7 +262,7 @@ Namespace Connect.Modules.UserManagement.AccountRegistration
             Dim blnUpdatePasswordAnswer As Boolean = (Not txtPasswordAnswer Is Nothing)
             If blnUpdatePasswordAnswer Then
                 If Not IsValidUserAttribute(Constants.User_PasswordAnswer, plhRegister) Then
-                    strMessages.Add("Error_MissingPasswordAnswer")
+                    strMessages.Add(Localization.GetString("Error_MissingPasswordAnswer", LocalResourceFile))
                     AddErrorIndicator(Constants.User_PasswordAnswer, plhRegister)
                 Else
                     RemoveErrorIndicator(Constants.User_PasswordAnswer, plhRegister, True)
@@ -275,7 +275,7 @@ Namespace Connect.Modules.UserManagement.AccountRegistration
 
             If blnUpdateFirstname Then
                 If Not IsValidUserAttribute(Constants.User_Firstname, plhRegister) Then
-                    strMessages.Add("Error_MissingFirstname")
+                    strMessages.Add(Localization.GetString("Error_MissingFirstname", LocalResourceFile))
                     AddErrorIndicator(Constants.User_Firstname, plhRegister)
                 Else
                     RemoveErrorIndicator(Constants.User_Firstname, plhRegister, True)
@@ -287,7 +287,7 @@ Namespace Connect.Modules.UserManagement.AccountRegistration
 
             If blnUpdateLastname Then
                 If Not IsValidUserAttribute(Constants.User_Lastname, plhRegister) Then
-                    strMessages.Add("Error_MissingLastname")
+                    strMessages.Add(Localization.GetString("Error_MissingFirstname", LocalResourceFile))
                     AddErrorIndicator(Constants.User_Lastname, plhRegister)
                 Else
                     RemoveErrorIndicator(Constants.User_Lastname, plhRegister, True)
@@ -296,7 +296,7 @@ Namespace Connect.Modules.UserManagement.AccountRegistration
 
             If CompareFirstNameLastName AndAlso (blnUpdateFirstname And blnUpdateLastname) Then
                 If txtLastName.Text.ToLower.Trim = txtFirstName.Text.ToLower.Trim Then
-                    strMessages.Add("Error_LastnameLikeFirstname")
+                    strMessages.Add(Localization.GetString("Error_LastnameLikeFirstname", LocalResourceFile))
                     AddErrorIndicator(Constants.User_Firstname, plhRegister)
                 End If
             End If
@@ -306,7 +306,7 @@ Namespace Connect.Modules.UserManagement.AccountRegistration
 
             If blnUpdateDisplayname Then
                 If Not IsValidUserAttribute(Constants.User_Displayname, plhRegister) Then
-                    strMessages.Add("Error_MissingDisplayName")
+                    strMessages.Add(Localization.GetString("Error_MissingDisplayName", LocalResourceFile))
                     AddErrorIndicator(Constants.User_Displayname, plhRegister)
                 Else
                     RemoveErrorIndicator(Constants.User_Displayname, plhRegister, True)
@@ -320,7 +320,7 @@ Namespace Connect.Modules.UserManagement.AccountRegistration
                     If Not prop Is Nothing Then
                         If Not IsValidProperty(Nothing, prop, plhRegister) Then
                             If blnProfileErrorAdded = False Then
-                                strMessages.Add("Error_MissingProfileField")
+                                strMessages.Add(Localization.GetString("Error_MissingProfileField", LocalResourceFile))
                                 blnProfileErrorAdded = True
                             End If
                             AddErrorIndicator(prop.PropertyDefinitionId.ToString, plhRegister)
@@ -332,17 +332,7 @@ Namespace Connect.Modules.UserManagement.AccountRegistration
                 End Try
             Next
 
-            If strMessages.Count > 0 Then
-                Me.pnlError.Visible = True
-                Me.lblError.Text = "<ul>"
-                For Each strMessage As String In strMessages
-                    lblError.Text += "<li>" & Localization.GetString(strMessage, LocalResourceFile) & "</li>"
-                Next
-                lblError.Text += "</ul>"
-                Exit Sub
-            End If
-
-
+            'Create the actual user object
             Dim oUser As UserInfo = New UserInfo
 
             'approve membership if applicable
@@ -367,7 +357,7 @@ Namespace Connect.Modules.UserManagement.AccountRegistration
 
 
 
-            'set username depending on setting
+            'set username depending on module setting
             Select Case UsernameMode
                 Case UsernameUpdateMode.Email
                     If blnUpdateEmail Then
@@ -391,7 +381,7 @@ Namespace Connect.Modules.UserManagement.AccountRegistration
                     End If
             End Select
 
-            'set displayname depending on setting
+            'set displayname depending on module setting
             Select Case DisplaynameMode
                 Case DisplaynameUpdateMode.Email
                     If blnUpdateEmail Then
@@ -422,11 +412,13 @@ Namespace Connect.Modules.UserManagement.AccountRegistration
             End If
 
             'try updating password
-            If blnUpdatePassword Then
+            If blnUpdatePassword Then 'only true once both password fields are found in the template
                 If txtPassword.Text = txtPassword2.Text Then
-                    If UserController.ValidatePassword(txtPassword.Text) Then
+                    If UserController.ValidatePassword(txtPassword.Text) Then 'let DNN validate password policy
+
                         oUser.Membership.Password = txtPassword.Text
-                    Else
+
+                    Else 'check failed, provide feedback about actual password policy
 
                         Dim MinLength As Integer = 0
                         Dim MinNonAlphaNumeric As Integer = 0
@@ -444,57 +436,79 @@ Namespace Connect.Modules.UserManagement.AccountRegistration
                             strPolicy += String.Format(Localization.GetString("PasswordPolicy_MinNonAlphaNumeric", LocalResourceFile), MinNonAlphaNumeric.ToString)
                         End If
 
-                        Me.pnlError.Visible = True
-                        Me.lblError.Text = "<ul><li>" & String.Format(Localization.GetString("InvalidPassword", LocalResourceFile), strPolicy) & "</li></ul>"
-                        Exit Sub
+                        strMessages.Add(String.Format(Localization.GetString("InvalidPassword", LocalResourceFile), strPolicy))
+
                     End If
                 Else
-                    Me.pnlError.Visible = True
-                    Me.lblError.Text = "<ul><li>" & Localization.GetString("PasswordsDontMatch.Text", LocalResourceFile) & "</li></ul>"
-                    Exit Sub
+
+                    strMessages.Add(Localization.GetString("PasswordsDontMatch.Text", LocalResourceFile))
+
                 End If
-            Else
-                'auto-generate password
-                oUser.Membership.Password = UserController.GeneratePassword(7)
+            Else 'no password fields in template, auto-generate password
+
+                oUser.Membership.Password = UserController.GeneratePassword(DotNetNuke.Security.Membership.MembershipProvider.Instance().MinPasswordLength)
+
             End If
 
             If blnUpdatePasswordQuestion AndAlso blnUpdatePasswordAnswer Then
+
                 oUser.Membership.PasswordQuestion = txtPasswordQuestion.Text
                 oUser.Membership.PasswordAnswer = txtPasswordAnswer.Text
+
             End If
 
             If oUser.Username = "" Or oUser.Email = "" Or oUser.DisplayName = "" Or oUser.Membership.Password = "" Then
-                'template must be setup up wrong
-                Me.pnlError.Visible = True
-                Me.lblError.Text = "<ul><li>" & String.Format(Localization.GetString("TemplateingError.Text", LocalResourceFile), PortalSettings.Email)
 
-                If oUser.Username = "" Then
-                    lblError.Text += " | Username is empty"
-                End If
+                'template must be setup up wrong, some fields missing most likely
+                strMessages.Add(String.Format(Localization.GetString("TemplateingError.Text", LocalResourceFile), PortalSettings.Email))
 
-                If oUser.Email = "" Then
-                    lblError.Text += " | E-mail is empty"
-                End If
-
-                If oUser.DisplayName = "" Then
-                    lblError.Text += " | Displayname is empty"
-                End If
-
-                If oUser.Username = "" Then
-                    lblError.Text += " | password is empty"
-                End If
-
-                lblError.Text += "</li></ul>"
-
-                Exit Sub
             End If
 
-            'set up profile
+            'set up profile object
             oUser.Profile = New UserProfile
             oUser.Profile.InitialiseProfile(PortalSettings.PortalId, True)
             oUser.Profile.PreferredLocale = PortalSettings.DefaultLanguage
             oUser.Profile.PreferredTimeZone = PortalSettings.TimeZone
-            'todo: create account
+
+            'retrieve properties from template
+            Dim propertiesCollection As New ProfilePropertyDefinitionCollection
+            UpdateProfileProperties(plhRegister, oUser, propertiesCollection, GetPropertiesFromTempate(GetTemplate(ModuleTheme, Constants.TemplateName_Form, CurrentLocale, False)))
+
+            '-------------------------------------------------------------------------------------
+            ' Call the Validation interface as a last resort to stop registration
+            '-------------------------------------------------------------------------------------
+            Dim externalValidationPass As Boolean = True
+            If ExternalInterface <> Null.NullString Then
+
+                Dim objInterface As Object = Nothing
+
+                If ExternalInterface.Contains(",") Then
+                    Dim strAssembly As String = ExternalInterface.Split(Char.Parse(","))(0).Trim
+                    Dim strClass As String = ExternalInterface.Split(Char.Parse(","))(1).Trim
+                    objInterface = System.Activator.CreateInstance(strAssembly, strClass).Unwrap
+                End If
+
+                If Not objInterface Is Nothing Then
+                    externalValidationPass = CType(objInterface, Interfaces.iAccountRegistration).ValidateRegistration(Server, Response, Request, oUser, propertiesCollection, strMessages)
+                End If
+
+            End If
+
+            If strMessages.Count > 0 OrElse Not externalValidationPass Then
+                Me.pnlError.Visible = True
+                Me.lblError.Text = "<ul>"
+                If strMessages.Count = 0 Then
+                    lblError.Text += "<li>" & Localization.GetString("Error_Unknown", LocalResourceFile) & "</li>"
+                Else
+                    For Each strMessage As String In strMessages
+                        lblError.Text += "<li>" & Localization.GetString(strMessage, LocalResourceFile) & "</li>"
+                    Next
+                End If
+                lblError.Text += "</ul>"
+                Exit Sub
+            End If
+
+            'everything fine so far, let's create the account
             Dim createStatus As UserCreateStatus = UserController.CreateUser(oUser)
 
             Dim strStatus As String = ""
@@ -531,8 +545,6 @@ Namespace Connect.Modules.UserManagement.AccountRegistration
                 Exit Sub
             End If
 
-            Dim propertiesCollection As New ProfilePropertyDefinitionCollection
-            UpdateProfileProperties(plhRegister, oUser, propertiesCollection, GetPropertiesFromTempate(GetTemplate(ModuleTheme, Constants.TemplateName_Form, CurrentLocale, False)))
             oUser = ProfileController.UpdateUserProfile(oUser, propertiesCollection)
 
             If blnUpdateFirstname = True Then
@@ -551,41 +563,6 @@ Namespace Connect.Modules.UserManagement.AccountRegistration
                 If oUser.Profile.LastName <> "" Then
                     oUser.LastName = oUser.Profile.LastName
                 End If
-            End If
-
-            If oUser.Username = "" Or oUser.Email = "" Or oUser.DisplayName = "" Or oUser.Membership.Password = "" Or oUser.FirstName = "" Or oUser.LastName = "" Then
-                'template must be setup up wrong
-                Me.pnlError.Visible = True
-                Me.lblError.Text = "<ul><li>" & String.Format(Localization.GetString("TemplateingError.Text", LocalResourceFile), PortalSettings.Email)
-
-                If oUser.Username = "" Then
-                    lblError.Text += " | Username is empty"
-                End If
-
-                If oUser.Email = "" Then
-                    lblError.Text += " | E-mail is empty"
-                End If
-
-                If oUser.DisplayName = "" Then
-                    lblError.Text += " | Displayname is empty"
-                End If
-
-                If oUser.Username = "" Then
-                    lblError.Text += " | password is empty"
-                End If
-
-
-                If oUser.FirstName = "" Then
-                    lblError.Text += " | Firstname is empty"
-                End If
-
-                If oUser.LastName = "" Then
-                    lblError.Text += " | LastName is empty"
-                End If
-
-                lblError.Text += "</li></ul>"
-
-                Exit Sub
             End If
 
             Try
@@ -686,21 +663,7 @@ Namespace Connect.Modules.UserManagement.AccountRegistration
             lblSucess.Text = "<ul><li>" & String.Format(Localization.GetString("RegisterSuccess", LocalResourceFile), NavigateURL(PortalSettings.HomeTabId)) & "</li></ul>"
             pnlSuccess.Visible = True
 
-            ProcessInterfaces(oUser)
-
-            'the following might not be processed if the interfaces manipulate the current response!
-            If Not Request.QueryString("ReturnURL") Is Nothing Then
-                Response.Redirect(Server.UrlDecode(Request.QueryString("ReturnURL")), True)
-            End If
-
-            If RedirectAfterSubmit <> Null.NullInteger Then
-                Response.Redirect(NavigateURL(RedirectAfterSubmit))
-            End If
-
-        End Sub
-
-        Private Sub ProcessInterfaces(CurrentUser As UserInfo)
-
+            'run the final interface if applicable
             If ExternalInterface <> Null.NullString Then
 
                 Dim objInterface As Object = Nothing
@@ -712,9 +675,18 @@ Namespace Connect.Modules.UserManagement.AccountRegistration
                 End If
 
                 If Not objInterface Is Nothing Then
-                    CType(objInterface, Interfaces.iAccountRegistration).FinalizeAccountRegistration(Server, Response, Request, CurrentUser)
+                    CType(objInterface, Interfaces.iAccountRegistration).FinalizeAccountRegistration(Server, Response, Request, oUser)
                 End If
 
+            End If
+
+            'the following might not be processed if the interfaces manipulate the current response!
+            If Not Request.QueryString("ReturnURL") Is Nothing Then
+                Response.Redirect(Server.UrlDecode(Request.QueryString("ReturnURL")), True)
+            End If
+
+            If RedirectAfterSubmit <> Null.NullInteger Then
+                Response.Redirect(NavigateURL(RedirectAfterSubmit))
             End If
 
         End Sub

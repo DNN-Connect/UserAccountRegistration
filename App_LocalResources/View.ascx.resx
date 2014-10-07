@@ -339,4 +339,7 @@
   <data name="recaptcha-not-reachable.Error" xml:space="preserve">
     <value>ReCaptcha server not reachable. Check your reCaptach account!</value>
   </data>
+  <data name="Error_Unknown.Text" xml:space="preserve">
+    <value>The data you provided is not valid. Please review and try again</value>
+  </data>
 </root>
