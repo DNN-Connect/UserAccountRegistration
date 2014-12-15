@@ -1,0 +1,78 @@
+
+<html>
+<head>
+    <title>[TITLE]</title>
+    <style type="text/css">
+        body {margin:10px;background-color:#eee}
+        html, body, *, a, a:link, a:active, a:visited, div, p, span, li { font-family: Arial, helvetica, Sans-Serif; font-size: 14px;}
+        h1,h2,h3,h4,h5,h6 {font-family: Arial, helvetica, Sans-Serif;}
+        a, a:link, a:active, a:visited {color:#47292B; text-decoration:none!important;}
+        a:hover {text-decoration:underline!important;}
+        .footer a {color:#fff}
+        h1 {font-size: 150px;}
+        h2 {font-size: 80px;}
+        h3 { font-size: 30px; }
+        h4 {font-size: 24px;}
+        h5 {font-size: 18px;}
+        h6 {font-size: 14px;}
+        .header { height:63px; background-color: #47292B; color:#fff }
+        .content { min-height: 537px; background-color: #FF7307; color:#fff; }
+        .footer { background-color:#00A3E4;color:#000; }
+    </style>
+</head>
+<body>
+    <div style="padding:40px;">
+
+        
+    <table style="width:600px; margin-left:auto; margin-right:auto; border-collapse:collapse;" align="center" Width="600" >
+        <tr class="content">
+            <td colspan="2" style="padding: 10px;">
+                <span style="font-family: Arial, helvetica, Sans-Serif; font-size: 10px; font-weight: bold; color: #333;">dnn-connect account service</span>
+            </td>
+        </tr>
+        <tr class="header" style="height:63px; background-color: #47292B; color:#fff">
+            <td style="width:250px;"><img style="padding:5px;" src="http://dnn-connect.org/Portals/0/Images/logo.png" alt="DNN-Connect" /></td>
+            <td style="width:350px;"><span style="font-family: Arial, helvetica, Sans-Serif; font-size: 30px;">&nbsp;</span></td>
+        </tr>
+        <tr class="content" style=" min-height: 537px; background-color: #FF7307; color:#fff; ">
+            <td colspan="2" style="padding: 10px;">
+
+
+                <p style="font-family: Arial, helvetica, Sans-Serif; font-size: 14px; font-weight: normal; color: #333;">
+                     A new account has been created at dnn-connect.org. The registration mode of the portal is set to <strong><i>[REGISTRATIONMODE]</i></strong>, so the following action is necessary:
+                </p>
+
+                <ul>
+                    <li style="font-family: Arial, helvetica, Sans-Serif; font-size: 14px; font-weight: normal; color: #333;">[ADMINACTION]</li>
+                </ul>
+               
+                <p style="font-family: Arial, helvetica, Sans-Serif; font-size: 14px; font-weight: bold; color: #333;">  
+                    << [FIRSTNAME] [LASTNAME], [EMAIL] >>
+                </p>
+
+                <p style="font-family: Arial, helvetica, Sans-Serif; font-size: 14px; font-weight: normal; color: #333;">
+                    <a href="[USERURL]" style="font-family: Arial, helvetica, Sans-Serif; font-size: 14px; font-weight: normal; color: #333;">Click to manage account</a>
+                </p>
+
+            </td>
+        </tr>
+        <tr class="footer" style="background-color:#00A3E4;color:#000;">
+            <td colspan="2">
+                <table cellpadding="5" cellspacing="0" style="border-collapse:collapse; margin-left:auto;margin-right:auto" align="center">
+                    <tr height="36">
+                        <td><img src="http://dnn-connect.org/portals/_default/skins/connect/images/globe.png" width="24" /></td>
+                        <td><a href="http://dnn-connect.org" style="font-family: Arial, helvetica, Sans-Serif; font-size: 12px; color: #fff;">dnn-connect.org</a></td>
+                        <td width="20">&nbsp;</td>
+                        <td><img src="http://dnn-connect.org/portals/_default/skins/connect/images/logo_tw.png" width="24" /></td>
+                        <td><a href="https://twitter.com/dnnConnect" style="font-family: Arial, helvetica, Sans-Serif; font-size: 12px; color: #fff;">@dnnConnect</a></td>
+                        <td width="20">&nbsp;</td>
+                        <td><img src="http://dnn-connect.org/portals/_default/skins/connect/images/logo_fb.png" width="24" /></td>
+                        <td><a href="https://www.facebook.com/dnnConnect" style="font-family: Arial, helvetica, Sans-Serif; font-size: 12px; color: #fff;">fb:dnnconnect</a></td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+    </div>
+</body>
+</html>

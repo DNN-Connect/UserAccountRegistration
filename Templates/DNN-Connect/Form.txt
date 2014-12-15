@@ -1,0 +1,138 @@
+<div id="ConnectRegisterForm" class="dnnForm clearfix">
+
+    <ul id="ConnectRegisterFormTabs" runat="Server" class="dnnAdminTabNav clearfix">
+        <li><a href="#Register" class="connect_RegisterTabLink">[RESX:LOGIN:CreateAccountTab]</a></li>
+        <li><a href="#Login" class="connect_LoginTabLink">[RESX:LOGIN:LoginTab]</a></li>
+    </ul>
+
+
+
+
+	<div id="Register" class="connect_register">
+		
+		<div class="connect_registernote">
+			<span>Your e-mail adress is used to log on to the website. It is adviseable to use an e-mail account that you will have access to in the future. Otherwise you will not receive e-mail notifications and you will never be able to reset your password later on!</span>
+		</div>
+
+		<div class="dnnFormItem dnnClear">
+		  [DNNLBL:USER:Email:HideRequired]
+		  [CTL:USER:Email]
+		  [REQUIRED:USER:Email]
+		</div>
+
+		<div class="dnnFormItem dnnClear">
+		  [DNNLBL:USER:Firstname:HideRequired]
+		  [CTL:USER:Firstname]
+		  [REQUIRED:USER:Firstname]
+		</div>
+
+		<div class="dnnFormItem dnnClear">
+		  [DNNLBL:USER:Lastname:HideRequired]
+		  [CTL:USER:Lastname]
+		  [REQUIRED:USER:Lastname]
+		</div>
+
+		<div class="connect_registernote">
+			<span>You must provide a secure password that contains at least 7 characters.</span>
+		</div>
+
+		<div class="dnnFormItem dnnClear">
+		  [DNNLBL:USER:Password1:HideRequired]
+		  [CTL:USER:Password1]
+		  [REQUIRED:USER:Password1]
+		</div>
+
+		<div class="dnnFormItem dnnClear">
+		  [DNNLBL:USER:Password2:HideRequired]
+		  [CTL:USER:Password2]
+		  [REQUIRED:USER:Password2]
+		</div>
+
+		<div class="connect_registernote" style="padding-top: 30px;">
+            <span>Would you also like to join the DNN-Connect Association?</span><br /><a href="/association">Click here for more information</a>
+        </div>
+
+		<div class="dnnFormItem dnnClear">
+		  [DNNLBL:STATIC:Yes, join:Check here if you want to join the association]
+		  [CTL:ROLEMEMBERSHIP:Association Member:Pending]
+		</div>
+	
+		<div class="dnnFormItem dnnClear" style="padding: 20px 0 20px 35px;">
+			[RECAPTCHA:6LeT2vUSAAAAAK9YCM_6tQw3dbNUYnDVnEi4XEnQ:white]
+		</div>
+
+		<ul class="dnnActions dnnClear">
+		  <li>[CTL:UPDATEBUTTON:CreateAccount]</li>
+		</ul>
+
+
+	</div>
+
+	<div id="Login" class="connect_login">
+
+		<div class="connect_registernote">
+			<span>Welcome back. Login with your e-mail address and your password. Then have fun!</span>
+		</div>
+
+		<div class="dnnFormItem dnnClear">
+		  [DNNLBL:LOGIN:Username]
+		  [CTL:LOGIN:Username]
+		</div>
+		
+		<div class="dnnFormItem dnnClear">
+		  [DNNLBL:LOGIN:Password]
+		  [CTL:LOGIN:Password]
+		</div>
+
+
+		
+		<ul class="dnnActions dnnClear">
+		  <li>[CTL:LOGINBUTTON:Login]</li>
+		  <li>[CTL:LOSTPASSWORDBUTTON:LostPassword]</li>
+		  <li>
+			<div class="dnnFormItem dnnClear RememberMe">
+			  [CTL:LOGIN:Remember]
+			  [DNNLBL:LOGIN:Remember]		  
+			</div>
+		  </li>
+		</ul>
+						
+
+	</div>
+</div>
+
+<script language="javascript" type="text/javascript">
+/*globals jQuery, window, Sys */
+(function ($, Sys) {
+
+    function setupFormSettings() {
+
+        $('#ConnectRegisterForm').dnnTabs();
+
+		$('#Register > .dnnFormItem > input').keypress(function(event){
+
+			  if(event.keyCode == 13){
+				$('#Register > .dnnActions > li > .dnnPrimaryAction').click();
+			  }
+
+		});
+
+		$('#Login > .dnnFormItem > input').keypress(function(event){
+
+			  if(event.keyCode == 13){
+				$('#Login > .dnnActions > li > .dnnPrimaryAction').click();
+			  }
+
+		});
+
+    }
+
+    $(document).ready(function () {
+        setupFormSettings();
+        Sys.WebForms.PageRequestManager.getInstance().add_endRequest(function () {
+            setupFormSettings();
+        });
+    });
+
+} (jQuery, window.Sys));
+</script>
