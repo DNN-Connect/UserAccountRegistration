@@ -144,7 +144,7 @@
     <Content Include="Templates\Default\Email.User.txt" />
     <Content Include="Templates\Default\Email.User.Verified.txt" />
     <None Include="Providers\DataProviders\SqlDataProvider\01.00.00.SqlDataProvider" />
-    <Content Include="Providers\DataProviders\SqlDataProvider\01.02.03.SqlDataProvider" />
+    <Content Include="Providers\DataProviders\SqlDataProvider\01.03.00.SqlDataProvider" />
     <None Include="Providers\DataProviders\SqlDataProvider\Uninstall.SqlDataProvider" />
   </ItemGroup>
   <ItemGroup>
