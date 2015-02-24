@@ -1,11 +1,11 @@
 <div id="ConnectRegisterForm" class="dnnForm dnnClear">
 
     <ul id="ConnectRegisterFormTabs" runat="Server" class="dnnAdminTabNav dnnClear">
-        <li><a href="#dvFormTemplate" class="connect_RegisterTabLink">[RESX:LOGIN:CreateAccountTab]</a></li>
-        <li><a href="#dvLoginTemplate" class="connect_LoginTabLink">[RESX:LOGIN:LoginTab]</a></li>
+        <li><a href="#Register" class="connect_RegisterTabLink">[RESX:LOGIN:CreateAccountTab]</a></li>
+        <li><a href="#Login" class="connect_LoginTabLink">[RESX:LOGIN:LoginTab]</a></li>
     </ul>
 
-	<div id="dvFormTemplate" class="connect_register">
+	<div id="Register" class="connect_register">
 		
 		<div class="dnnFormItem dnnClear">
 		  [DNNLBL:USER:Username:HideRequired]
@@ -49,7 +49,7 @@
 
 	</div>
 
-		<div id="dvLoginTemplate" class="connect_login">
+	<div id="Login" class="connect_login">
 
 
 		<div class="dnnFormItem dnnClear">
@@ -81,12 +81,27 @@
 (function ($, Sys) {
 
     function setupFormSettings() {
-        $('#ConnectRegisterForm').dnnTabs();
-		$('.connect_LoginTabLink').click(function () {
-			$('#dvLoginTemplate > input.dnnPrimaryAction').focus();
+        
+		$('#ConnectRegisterForm').dnnTabs();
+		
+		$('#Register > .dnnFormItem > input').keypress(function (e){
+			
+			 var key = e.which;
+			 if(key == 13) {
+				$('#Register > .dnnActions > li > .dnnPrimaryAction').click();
+				return false;
+			 }
+
 		});
-		$('.connect_RegisterTabLink').click(function () {
-			$('#dvFormTemplate > input.dnnPrimaryAction').focus();
+
+		$('#Login > .dnnFormItem > input').keypress(function (e){
+
+			var key = e.which;
+			if(key == 13) {
+				$('#Login > .dnnActions > li > .dnnPrimaryAction').click();
+				return false;
+			}
+
 		});
     }
 
