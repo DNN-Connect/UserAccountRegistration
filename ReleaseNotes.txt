@@ -18,6 +18,7 @@
 		<li>New: New Checkboxlist control for profile properties</li>
 		<li>New: Interface for handling pre-registration event</li>
 		<li>Enhancement: Customize messages displayed on screen after registration</li>
+		<li>Enhancement: Cross-browser support for pressing enter on registration and signup form</li>
 	</ul>
 	<p><a href="https://github.com/DNN-Connect/UserAccountRegistration/issues?q=milestone%3A01.03.00+is%3Aclosed" target="_blank">Full change log</a></p>
 	<p>Thanks to <a href="https://github.com/vmasanas" target="_blank">Vicenç Masanas</a> for contributing</p>
