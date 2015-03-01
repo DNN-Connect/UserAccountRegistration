@@ -501,7 +501,7 @@ Namespace Connect.Modules.UserManagement.AccountRegistration
                     lblError.Text += "<li>" & Localization.GetString("Error_Unknown", LocalResourceFile) & "</li>"
                 Else
                     For Each strMessage As String In strMessages
-                        lblError.Text += "<li>" & Localization.GetString(strMessage, LocalResourceFile) & "</li>"
+                        lblError.Text += "<li>" & strMessage & "</li>"
                     Next
                 End If
                 lblError.Text += "</ul>"
