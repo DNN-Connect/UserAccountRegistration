@@ -139,16 +139,12 @@
     <None Include="BuildScripts\MSBuild.Community.Tasks.Targets" />
     <None Include="Connect_AccountRegistration.dnn" />
     <Content Include="Templates.ascx" />
-    <Content Include="Templates\Connect\Email.Admin.txt" />
-    <Content Include="Templates\Connect\Email.User.Private.txt" />
-    <Content Include="Templates\Connect\Email.User.txt" />
-    <Content Include="Templates\Connect\Email.User.Verified.txt" />
-    <Content Include="Templates\Connect\Form.txt" />
     <Content Include="Templates\Default\Email.Admin.txt" />
     <Content Include="Templates\Default\Email.User.Private.txt" />
     <Content Include="Templates\Default\Email.User.txt" />
     <Content Include="Templates\Default\Email.User.Verified.txt" />
     <None Include="Providers\DataProviders\SqlDataProvider\01.00.00.SqlDataProvider" />
+    <Content Include="Providers\DataProviders\SqlDataProvider\01.03.00.SqlDataProvider" />
     <None Include="Providers\DataProviders\SqlDataProvider\Uninstall.SqlDataProvider" />
   </ItemGroup>
   <ItemGroup>
@@ -178,7 +174,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>62597</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
