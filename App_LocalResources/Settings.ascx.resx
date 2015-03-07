@@ -148,7 +148,7 @@
     <value>Create from E-Mail Address</value>
   </data>
   <data name="Displayname_Lastname" xml:space="preserve">
-    <value>Create from Lastname</value>
+    <value>Create from Last name</value>
   </data>
   <data name="lblAddToRole.Help" xml:space="preserve">
     <value>You may optionally select a role that the user is being added to once registering through this module instance</value>
@@ -190,7 +190,7 @@
     <value>Create in the form [Firstname.Lastname]</value>
   </data>
   <data name="Username_Lastname" xml:space="preserve">
-    <value>Create from Lastname</value>
+    <value>Create from Last name</value>
   </data>
   <data name="lblInterface.Help" xml:space="preserve">
     <value>Enter the external interface qualifier. See &lt;a href="https://github.com/DNN-Connect/UserAccountRegistration/wiki/External-Interfaces" target="_blank"&gt;this article&lt;/a&gt; on how to do that and how it can help you.</value>
@@ -217,10 +217,10 @@
     <value>Private reCaptcha Key:</value>
   </data>
   <data name="lblCompareFirstNameLastName.Help" xml:space="preserve">
-    <value>If checked, a check is being done if the firstname is not equal to the lastname. Note that you will have to setup your form template to include both fields!</value>
+    <value>If checked, a check is being done if the first name is not equal to the last name. Note that you will have to setup your form template to include both fields!</value>
   </data>
   <data name="lblCompareFirstNameLastName.Text" xml:space="preserve">
-    <value>Compare firstname with lastname:</value>
+    <value>Compare first name with last name:</value>
   </data>
   <data name="lblEmailRegex.Help" xml:space="preserve">
     <value>Enter the regular expression for validating e-mail adresses</value>
